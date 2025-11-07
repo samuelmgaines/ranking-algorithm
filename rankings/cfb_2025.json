@@ -1,0 +1,902 @@
+[
+  {
+    "rank": 1,
+    "team": "Indiana"
+  },
+  {
+    "rank": 2,
+    "team": "Texas A&M"
+  },
+  {
+    "rank": 3,
+    "team": "Oregon"
+  },
+  {
+    "rank": 4,
+    "team": "Ohio State"
+  },
+  {
+    "rank": 5,
+    "team": "Indiana State"
+  },
+  {
+    "rank": 6,
+    "team": "Tarleton State"
+  },
+  {
+    "rank": 7,
+    "team": "Montana State"
+  },
+  {
+    "rank": 8,
+    "team": "Grambling State"
+  },
+  {
+    "rank": 9,
+    "team": "Alabama"
+  },
+  {
+    "rank": 10,
+    "team": "Georgia"
+  },
+  {
+    "rank": 11,
+    "team": "Austin Peay"
+  },
+  {
+    "rank": 12,
+    "team": "Texas"
+  },
+  {
+    "rank": 13,
+    "team": "Mississippi"
+  },
+  {
+    "rank": 14,
+    "team": "Vanderbilt"
+  },
+  {
+    "rank": 15,
+    "team": "Louisiana State"
+  },
+  {
+    "rank": 16,
+    "team": "Oklahoma"
+  },
+  {
+    "rank": 17,
+    "team": "Missouri"
+  },
+  {
+    "rank": 18,
+    "team": "Brigham Young"
+  },
+  {
+    "rank": 19,
+    "team": "Tennessee"
+  },
+  {
+    "rank": 20,
+    "team": "South Carolina"
+  },
+  {
+    "rank": 21,
+    "team": "Kentucky"
+  },
+  {
+    "rank": 22,
+    "team": "Michigan"
+  },
+  {
+    "rank": 23,
+    "team": "Washington"
+  },
+  {
+    "rank": 24,
+    "team": "Illinois"
+  },
+  {
+    "rank": 25,
+    "team": "Southern California"
+  },
+  {
+    "rank": 26,
+    "team": "Notre Dame"
+  },
+  {
+    "rank": 27,
+    "team": "Miami (FL)"
+  },
+  {
+    "rank": 28,
+    "team": "Florida"
+  },
+  {
+    "rank": 29,
+    "team": "California-Davis"
+  },
+  {
+    "rank": 30,
+    "team": "Mississippi State"
+  },
+  {
+    "rank": 31,
+    "team": "Louisville"
+  },
+  {
+    "rank": 32,
+    "team": "Long Island"
+  },
+  {
+    "rank": 33,
+    "team": "Auburn"
+  },
+  {
+    "rank": 34,
+    "team": "Illinois State"
+  },
+  {
+    "rank": 35,
+    "team": "Texas Tech"
+  },
+  {
+    "rank": 36,
+    "team": "Utah"
+  },
+  {
+    "rank": 37,
+    "team": "Virginia"
+  },
+  {
+    "rank": 38,
+    "team": "Arizona State"
+  },
+  {
+    "rank": 39,
+    "team": "Houston"
+  },
+  {
+    "rank": 40,
+    "team": "Stephen F. Austin"
+  },
+  {
+    "rank": 41,
+    "team": "Cal Poly"
+  },
+  {
+    "rank": 42,
+    "team": "James Madison"
+  },
+  {
+    "rank": 43,
+    "team": "Nebraska"
+  },
+  {
+    "rank": 44,
+    "team": "Cincinnati"
+  },
+  {
+    "rank": 45,
+    "team": "Iowa"
+  },
+  {
+    "rank": 46,
+    "team": "Iowa State"
+  },
+  {
+    "rank": 47,
+    "team": "Arizona"
+  },
+  {
+    "rank": 48,
+    "team": "East Tennessee State"
+  },
+  {
+    "rank": 49,
+    "team": "Minnesota"
+  },
+  {
+    "rank": 50,
+    "team": "South Florida"
+  },
+  {
+    "rank": 51,
+    "team": "North Texas"
+  },
+  {
+    "rank": 52,
+    "team": "Navy"
+  },
+  {
+    "rank": 53,
+    "team": "Pittsburgh"
+  },
+  {
+    "rank": 54,
+    "team": "Florida State"
+  },
+  {
+    "rank": 55,
+    "team": "North Carolina State"
+  },
+  {
+    "rank": 56,
+    "team": "Georgia Tech"
+  },
+  {
+    "rank": 57,
+    "team": "Colorado"
+  },
+  {
+    "rank": 58,
+    "team": "Wake Forest"
+  },
+  {
+    "rank": 59,
+    "team": "Duke"
+  },
+  {
+    "rank": 60,
+    "team": "Texas Christian"
+  },
+  {
+    "rank": 61,
+    "team": "Baylor"
+  },
+  {
+    "rank": 62,
+    "team": "Southern Methodist"
+  },
+  {
+    "rank": 63,
+    "team": "Tulane"
+  },
+  {
+    "rank": 64,
+    "team": "East Carolina"
+  },
+  {
+    "rank": 65,
+    "team": "Temple"
+  },
+  {
+    "rank": 66,
+    "team": "Texas-San Antonio"
+  },
+  {
+    "rank": 67,
+    "team": "Army"
+  },
+  {
+    "rank": 68,
+    "team": "Kansas State"
+  },
+  {
+    "rank": 69,
+    "team": "Virginia Tech"
+  },
+  {
+    "rank": 70,
+    "team": "Kansas"
+  },
+  {
+    "rank": 71,
+    "team": "Central Florida"
+  },
+  {
+    "rank": 72,
+    "team": "West Virginia"
+  },
+  {
+    "rank": 73,
+    "team": "Old Dominion"
+  },
+  {
+    "rank": 74,
+    "team": "Northwestern"
+  },
+  {
+    "rank": 75,
+    "team": "Rutgers"
+  },
+  {
+    "rank": 76,
+    "team": "South Dakota"
+  },
+  {
+    "rank": 77,
+    "team": "Memphis"
+  },
+  {
+    "rank": 78,
+    "team": "Purdue"
+  },
+  {
+    "rank": 79,
+    "team": "Central Arkansas"
+  },
+  {
+    "rank": 80,
+    "team": "California"
+  },
+  {
+    "rank": 81,
+    "team": "Ohio"
+  },
+  {
+    "rank": 82,
+    "team": "San Diego State"
+  },
+  {
+    "rank": 83,
+    "team": "Samford"
+  },
+  {
+    "rank": 84,
+    "team": "Stanford"
+  },
+  {
+    "rank": 85,
+    "team": "Western Carolina"
+  },
+  {
+    "rank": 86,
+    "team": "Coastal Carolina"
+  },
+  {
+    "rank": 87,
+    "team": "Washington State"
+  },
+  {
+    "rank": 88,
+    "team": "Kennesaw State"
+  },
+  {
+    "rank": 89,
+    "team": "Arkansas"
+  },
+  {
+    "rank": 90,
+    "team": "North Carolina Central"
+  },
+  {
+    "rank": 91,
+    "team": "Missouri State"
+  },
+  {
+    "rank": 92,
+    "team": "Marshall"
+  },
+  {
+    "rank": 93,
+    "team": "Louisiana Tech"
+  },
+  {
+    "rank": 94,
+    "team": "Southern Mississippi"
+  },
+  {
+    "rank": 95,
+    "team": "Arkansas State"
+  },
+  {
+    "rank": 96,
+    "team": "Troy"
+  },
+  {
+    "rank": 97,
+    "team": "Louisiana-Monroe"
+  },
+  {
+    "rank": 98,
+    "team": "Texas State"
+  },
+  {
+    "rank": 99,
+    "team": "Western Kentucky"
+  },
+  {
+    "rank": 100,
+    "team": "Clemson"
+  },
+  {
+    "rank": 101,
+    "team": "North Carolina"
+  },
+  {
+    "rank": 102,
+    "team": "Syracuse"
+  },
+  {
+    "rank": 103,
+    "team": "Maryland"
+  },
+  {
+    "rank": 104,
+    "team": "Wisconsin"
+  },
+  {
+    "rank": 105,
+    "team": "Florida Atlantic"
+  },
+  {
+    "rank": 106,
+    "team": "Rice"
+  },
+  {
+    "rank": 107,
+    "team": "Alabama-Birmingham"
+  },
+  {
+    "rank": 108,
+    "team": "Connecticut"
+  },
+  {
+    "rank": 109,
+    "team": "Florida International"
+  },
+  {
+    "rank": 110,
+    "team": "Penn State"
+  },
+  {
+    "rank": 111,
+    "team": "Delaware"
+  },
+  {
+    "rank": 112,
+    "team": "Louisiana"
+  },
+  {
+    "rank": 113,
+    "team": "UCLA"
+  },
+  {
+    "rank": 114,
+    "team": "Boise State"
+  },
+  {
+    "rank": 115,
+    "team": "New Mexico"
+  },
+  {
+    "rank": 116,
+    "team": "Nevada-Las Vegas"
+  },
+  {
+    "rank": 117,
+    "team": "Fresno State"
+  },
+  {
+    "rank": 118,
+    "team": "Georgia Southern"
+  },
+  {
+    "rank": 119,
+    "team": "Jacksonville State"
+  },
+  {
+    "rank": 120,
+    "team": "Appalachian State"
+  },
+  {
+    "rank": 121,
+    "team": "Oregon State"
+  },
+  {
+    "rank": 122,
+    "team": "Michigan State"
+  },
+  {
+    "rank": 123,
+    "team": "Hawaii"
+  },
+  {
+    "rank": 124,
+    "team": "Colorado State"
+  },
+  {
+    "rank": 125,
+    "team": "Miami (OH)"
+  },
+  {
+    "rank": 126,
+    "team": "Western Michigan"
+  },
+  {
+    "rank": 127,
+    "team": "Utah State"
+  },
+  {
+    "rank": 128,
+    "team": "Toledo"
+  },
+  {
+    "rank": 129,
+    "team": "Ball State"
+  },
+  {
+    "rank": 130,
+    "team": "Wyoming"
+  },
+  {
+    "rank": 131,
+    "team": "Akron"
+  },
+  {
+    "rank": 132,
+    "team": "Central Michigan"
+  },
+  {
+    "rank": 133,
+    "team": "San Jose State"
+  },
+  {
+    "rank": 134,
+    "team": "Buffalo"
+  },
+  {
+    "rank": 135,
+    "team": "Eastern Michigan"
+  },
+  {
+    "rank": 136,
+    "team": "Northern Illinois"
+  },
+  {
+    "rank": 137,
+    "team": "Liberty"
+  },
+  {
+    "rank": 138,
+    "team": "Air Force"
+  },
+  {
+    "rank": 139,
+    "team": "Kent State"
+  },
+  {
+    "rank": 140,
+    "team": "Bowling Green"
+  },
+  {
+    "rank": 141,
+    "team": "Northern Colorado"
+  },
+  {
+    "rank": 142,
+    "team": "Portland State"
+  },
+  {
+    "rank": 143,
+    "team": "Towson"
+  },
+  {
+    "rank": 144,
+    "team": "Florida A&M"
+  },
+  {
+    "rank": 145,
+    "team": "Nicholls State"
+  },
+  {
+    "rank": 146,
+    "team": "Prairie View A&M"
+  },
+  {
+    "rank": 147,
+    "team": "South Alabama"
+  },
+  {
+    "rank": 148,
+    "team": "Lamar"
+  },
+  {
+    "rank": 149,
+    "team": "Jackson State"
+  },
+  {
+    "rank": 150,
+    "team": "Lindenwood"
+  },
+  {
+    "rank": 151,
+    "team": "Arkansas-Pine Bluff"
+  },
+  {
+    "rank": 152,
+    "team": "Holy Cross"
+  },
+  {
+    "rank": 153,
+    "team": "Weber State"
+  },
+  {
+    "rank": 154,
+    "team": "Wofford"
+  },
+  {
+    "rank": 155,
+    "team": "New Mexico State"
+  },
+  {
+    "rank": 156,
+    "team": "Alabama A&M"
+  },
+  {
+    "rank": 157,
+    "team": "Youngstown State"
+  },
+  {
+    "rank": 158,
+    "team": "Southern Illinois"
+  },
+  {
+    "rank": 159,
+    "team": "Bethune-Cookman"
+  },
+  {
+    "rank": 160,
+    "team": "Richmond"
+  },
+  {
+    "rank": 161,
+    "team": "South Carolina State"
+  },
+  {
+    "rank": 162,
+    "team": "Virginia Military Institute"
+  },
+  {
+    "rank": 163,
+    "team": "Bucknell"
+  },
+  {
+    "rank": 164,
+    "team": "Campbell"
+  },
+  {
+    "rank": 165,
+    "team": "Georgia State"
+  },
+  {
+    "rank": 166,
+    "team": "Alabama State"
+  },
+  {
+    "rank": 167,
+    "team": "East Texas A&M"
+  },
+  {
+    "rank": 168,
+    "team": "Duquesne"
+  },
+  {
+    "rank": 169,
+    "team": "North Carolina A&T"
+  },
+  {
+    "rank": 170,
+    "team": "Middle Tennessee State"
+  },
+  {
+    "rank": 171,
+    "team": "Boston College"
+  },
+  {
+    "rank": 172,
+    "team": "Tulsa"
+  },
+  {
+    "rank": 173,
+    "team": "Chattanooga"
+  },
+  {
+    "rank": 174,
+    "team": "Stony Brook"
+  },
+  {
+    "rank": 175,
+    "team": "Rhode Island"
+  },
+  {
+    "rank": 176,
+    "team": "Southeast Missouri State"
+  },
+  {
+    "rank": 177,
+    "team": "Abilene Christian"
+  },
+  {
+    "rank": 178,
+    "team": "Howard"
+  },
+  {
+    "rank": 179,
+    "team": "Robert Morris"
+  },
+  {
+    "rank": 180,
+    "team": "Northern Iowa"
+  },
+  {
+    "rank": 181,
+    "team": "Alcorn State"
+  },
+  {
+    "rank": 182,
+    "team": "Idaho"
+  },
+  {
+    "rank": 183,
+    "team": "Southeastern Louisiana"
+  },
+  {
+    "rank": 184,
+    "team": "Nevada"
+  },
+  {
+    "rank": 185,
+    "team": "Merrimack"
+  },
+  {
+    "rank": 186,
+    "team": "Northern Arizona"
+  },
+  {
+    "rank": 187,
+    "team": "Bryant"
+  },
+  {
+    "rank": 188,
+    "team": "Northwestern State"
+  },
+  {
+    "rank": 189,
+    "team": "Albany"
+  },
+  {
+    "rank": 190,
+    "team": "Morgan State"
+  },
+  {
+    "rank": 191,
+    "team": "Maine"
+  },
+  {
+    "rank": 192,
+    "team": "Delaware State"
+  },
+  {
+    "rank": 193,
+    "team": "North Dakota"
+  },
+  {
+    "rank": 194,
+    "team": "New Hampshire"
+  },
+  {
+    "rank": 195,
+    "team": "Colgate"
+  },
+  {
+    "rank": 196,
+    "team": "Texas Southern"
+  },
+  {
+    "rank": 197,
+    "team": "Charlotte"
+  },
+  {
+    "rank": 198,
+    "team": "North Alabama"
+  },
+  {
+    "rank": 199,
+    "team": "Gardner-Webb"
+  },
+  {
+    "rank": 200,
+    "team": "Oklahoma State"
+  },
+  {
+    "rank": 201,
+    "team": "Charleston Southern"
+  },
+  {
+    "rank": 202,
+    "team": "Eastern Washington"
+  },
+  {
+    "rank": 203,
+    "team": "Villanova"
+  },
+  {
+    "rank": 204,
+    "team": "Western Illinois"
+  },
+  {
+    "rank": 205,
+    "team": "Idaho State"
+  },
+  {
+    "rank": 206,
+    "team": "Wagner"
+  },
+  {
+    "rank": 207,
+    "team": "Sacramento State"
+  },
+  {
+    "rank": 208,
+    "team": "Lafayette"
+  },
+  {
+    "rank": 209,
+    "team": "Texas-El Paso"
+  },
+  {
+    "rank": 210,
+    "team": "Massachusetts"
+  },
+  {
+    "rank": 211,
+    "team": "Elon"
+  },
+  {
+    "rank": 212,
+    "team": "McNeese State"
+  },
+  {
+    "rank": 213,
+    "team": "St. Francis (PA)"
+  },
+  {
+    "rank": 214,
+    "team": "Norfolk State"
+  },
+  {
+    "rank": 215,
+    "team": "Houston Baptist"
+  },
+  {
+    "rank": 216,
+    "team": "Murray State"
+  },
+  {
+    "rank": 217,
+    "team": "Central Connecticut State"
+  },
+  {
+    "rank": 218,
+    "team": "Monmouth"
+  },
+  {
+    "rank": 219,
+    "team": "Fordham"
+  },
+  {
+    "rank": 220,
+    "team": "Incarnate Word"
+  },
+  {
+    "rank": 221,
+    "team": "Tennessee-Martin"
+  },
+  {
+    "rank": 222,
+    "team": "Eastern Kentucky"
+  },
+  {
+    "rank": 223,
+    "team": "Southern"
+  },
+  {
+    "rank": 224,
+    "team": "Sam Houston"
+  },
+  {
+    "rank": 225,
+    "team": "William & Mary"
+  }
+]
