@@ -6,4 +6,4 @@ There are many ways to rank a set of entities given results of one-on-one games 
 
 There is a lot of controversy behind some decisions made by college sports committees. However, it is difficult to rely on something as simple as win-loss record to determine college rankings due to a wide variety of schedules.
 
-My personal opinion is the most important quality a ranking should have is consistency; i.e., if $A$ wins against $B$, $A$ should be ranked higher than $B$. I propose a new ranking system which prioritizes consistency above all else. This is a work in progress.
+My personal opinion is that the most important quality of a ranking should be consistency; i.e., if $A$ wins against $B$, $A$ should be ranked higher than $B$. I propose a new ranking system which prioritizes consistency above all else. This is a work in progress.
