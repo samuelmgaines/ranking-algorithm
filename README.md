@@ -33,7 +33,7 @@ The total inconsistency score of the ranking is just the sum of all the inconsis
 
 ## The Improved Ranking System
 
-Optimization problem $(1)$ is valid and prioritizes consistency, but there are a few features that can be viewed as problematic. We make small changes to the formulation to solve these problems.
+Optimization problem $(1)$ is valid and prioritizes consistency, but there are a few features that could be viewed as problematic. We make small changes to the formulation to solve these problems.
 
 ### Respecting Head-To-Head Results
 
@@ -43,9 +43,9 @@ Let's consider both cases with the objective function proposed in $(1)$. If we l
 
 Now, let $r_1=2$ and $r_2=1$. The game between $c_1$ and $c_2$ is now inconsistent with score $1$. The game between $c_1$ and $c_3$ is inconsistent with score $r_3 - 2$. The total inconsistency score here is $1 + (r_3 - 2) = r_3 - 1$.
 
-Notice that in $1$, both rankings are equally consistent. However, I propose that a better ranking, when magnitude of inconsistency is equivalent, should then minimize the number of inconsistencies. In this case, letting $r_1=1$ and $r_2=2$ should be preferred so the game between $c_1$ and $c_2$ is a consistent one with the ranking.
+Notice that in $(1)$, both rankings are equally consistent. However, I propose that a better ranking, when magnitude of inconsistency is equivalent, should then minimize the number of inconsistencies. This is certainly the precedent set in many rankings to prioritize head-to-head results. In this case, letting $r_1=1$ and $r_2=2$ should be preferred so the game between $c_1$ and $c_2$ is a consistent one with the ranking.
 
-This can be achieved by not only tracking the sizes of each inconsistency, but also the number of inconsistencies. Therefore, our new objective function is the sum of all game inconsistency scores plus the number of inconsistent games. Equivalently, we can just add $1$ to each inconsistent game to form a new game inconsistency score, $max(0, r_j - r_i + 1) for game (c_i, c_j). Indeed, if $r_i > r_j$, then the game still has score $0$.
+This can be achieved by not only tracking the sizes of each inconsistency, but also the number of inconsistencies. Therefore, our new objective function is the sum of all game inconsistency scores plus the number of inconsistent games. Equivalently, we can just add $1$ to each inconsistent game to form a new game inconsistency score, $max(0, r_j - r_i + 1)$ for game $(c_i, c_j)$. Indeed, if $r_i > r_j$, then the game still has score $0$.
 
 This can also be confirmed with our previous example. Letting $r_1 = 1$ and $r_2 = 2$ gives total inconsistency score $0 + (r_3 - 1 + 1) = r_3$. On the other hand, letting $r_1 = 2$ and $r_2 = 1$ gives total inconsistency score $(2 - 1 + 1) + (r_3 - 2 + 1) = r_3 + 1$. The first rank assignment now has a lower inconsistency score, as desired.
 
