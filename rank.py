@@ -3,24 +3,68 @@ import random
 import math
 import os
 
-def ranking_loss(order, games):
+def compute_sos(ranking, games):
+    """Compute strength of schedule for each competitor based on the ranking."""
+    n = len(ranking)
+    # Create mapping from competitor to actual rank (1-indexed)
+    rank_map = {team: i + 1 for i, team in enumerate(ranking)}
+    sos = {team: 0.0 for team in ranking}
+    opponent_counts = {team: 0 for team in ranking}
+    
+    # Count opponents for each competitor
+    for game in games:
+        winner = game["winner"]
+        loser = game["loser"]
+        # Use actual ranks: (n - rank_j) / n
+        sos[winner] += (n - rank_map[loser]) / n
+        sos[loser] += (n - rank_map[winner]) / n
+        opponent_counts[winner] += 1
+        opponent_counts[loser] += 1
+    
+    # Normalize by number of opponents
+    for team in sos:
+        if opponent_counts[team] > 0:
+            sos[team] /= opponent_counts[team]
+        else:
+            sos[team] = 0.5  # Neutral value for competitors with no games
+    
+    return sos
+
+def ranking_loss(order, games, include_sos=True):
     """Compute the total ranking inconsistency loss for a given order."""
+    n = len(order)
     index = {team: i for i, team in enumerate(order)}
-    loss = 0
-    for g in games:
-        w = index[g["winner"]]
-        l = index[g["loser"]]
-        loss += max(0, 1 + w - l)
-    return loss
+    inconsistency_loss = 0
+    
+    # Primary inconsistency loss
+    for game in games:
+        winner_idx = index[game["winner"]]
+        loser_idx = index[game["loser"]]
+        inconsistency_loss += max(0, 1 + winner_idx - loser_idx)
+    
+    if not include_sos or n <= 1:
+        return inconsistency_loss
+    
+    # Strength of schedule tie-breaker
+    sos = compute_sos(order, games)
+    sos_penalty = 0
+    for i, competitor in enumerate(order):
+        # Use actual rank (i+1) not index (i) for SOS penalty
+        sos_penalty += sos[competitor] * (i + 1)
+    
+    # Apply the bounded coefficient to ensure tie-breaker < 1
+    epsilon = 2 / (n * (n + 1))
+    total_loss = inconsistency_loss + epsilon * sos_penalty
+    
+    return total_loss
 
-
-def optimize_ranking(games, teams_file=None, max_iter=100000, seed=42):
+def optimize_ranking(games, competitors_file=None, max_iter=100000, seed=42):
     """Use simulated annealing to find a near-optimal ranking."""
     random.seed(seed)
-    teams = list({g["winner"] for g in games} | {g["loser"] for g in games})
-    random.shuffle(teams)
+    competitors = list({g["winner"] for g in games} | {g["loser"] for g in games})
+    random.shuffle(competitors)
     
-    best_order = teams[:]
+    best_order = competitors[:]
     best_loss = ranking_loss(best_order, games)
     current_order = best_order[:]
     current_loss = best_loss
@@ -28,8 +72,8 @@ def optimize_ranking(games, teams_file=None, max_iter=100000, seed=42):
     temperature = 1.0
 
     for step in range(max_iter):
-        # Randomly swap two teams
-        i, j = random.sample(range(len(teams)), 2)
+        # Randomly swap two competitors
+        i, j = random.sample(range(len(competitors)), 2)
         new_order = current_order[:]
         new_order[i], new_order[j] = new_order[j], new_order[i]
 
@@ -57,7 +101,7 @@ def optimize_ranking(games, teams_file=None, max_iter=100000, seed=42):
         total_passes += 1
         improved = False
         
-        for current_pos, team in enumerate(best_order):
+        for current_pos, competitor in enumerate(best_order):
             best_slide_pos = current_pos
             best_slide_loss = best_loss
             
@@ -68,9 +112,9 @@ def optimize_ranking(games, teams_file=None, max_iter=100000, seed=42):
                     break
                 
                 new_order = best_order[:]
-                # Remove team from current position and insert at new position
+                # Remove competitor from current position and insert at new position
                 new_order.pop(current_pos)
-                new_order.insert(new_pos, team)
+                new_order.insert(new_pos, competitor)
                 
                 new_loss = ranking_loss(new_order, games)
                 if new_loss < best_slide_loss:
@@ -85,18 +129,18 @@ def optimize_ranking(games, teams_file=None, max_iter=100000, seed=42):
                 
                 new_order = best_order[:]
                 new_order.pop(current_pos)
-                new_order.insert(new_pos, team)
+                new_order.insert(new_pos, competitor)
                 
                 new_loss = ranking_loss(new_order, games)
                 if new_loss < best_slide_loss:
                     best_slide_loss = new_loss
                     best_slide_pos = new_pos
             
-            # If we found a better position for this team
+            # If we found a better position for this competitor
             if best_slide_pos != current_pos:
                 new_order = best_order[:]
                 new_order.pop(current_pos)
-                new_order.insert(best_slide_pos, team)
+                new_order.insert(best_slide_pos, competitor)
                 
                 best_order = new_order
                 best_loss = best_slide_loss
@@ -107,20 +151,20 @@ def optimize_ranking(games, teams_file=None, max_iter=100000, seed=42):
             break
     
     print(f"Sliding optimization completed in {total_passes} passes")
-    print(f"Final loss: {best_loss:.2f}")
+    print(f"Final loss: {best_loss:.4f}")
 
-    if teams_file:
-        with open(teams_file, "r", encoding="utf-8") as f:
-            specified_teams = json.load(f)
-        best_order = [t for t in best_order if t in specified_teams]
-    ranking = [{"rank": i + 1, "team": t} for i, t in enumerate(best_order)]
+    if competitors_file:
+        with open(competitors_file, "r", encoding="utf-8") as f:
+            specified_competitors = json.load(f)
+        best_order = [c for c in best_order if c in specified_competitors]
+    ranking = [{"rank": i + 1, "competitor": c} for i, c in enumerate(best_order)]
 
     return ranking, best_loss
 
 if __name__ == "__main__":
-    input_file = input("Enter input file with results: ")
-    teams_file = input("Enter file with list of teams to rank (optional, press enter to skip): ")
-    output_file = input("Enter output file name (default output.json): ")
+    input_file = input("Enter input file with game results: ")
+    competitors_file = input("Enter file with list of competitors to rank (optional, press enter to skip): ")
+    output_file = input("Enter output file name (default: output.json): ")
     if not output_file:
         output_file = "output.json"
     output_file = "rankings/" + output_file
@@ -133,13 +177,12 @@ if __name__ == "__main__":
         games = json.load(f)
 
     print(f"Loaded {len(games)} games...")
-    ranking, loss = optimize_ranking(games, teams_file if teams_file else None)
+    ranking, loss = optimize_ranking(games, competitors_file if competitors_file else None)
 
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(ranking, f, indent=2, ensure_ascii=False)
 
-    print(f"Final loss: {loss:.2f}")
-    print(f"Saved {len(ranking)} team rankings to {output_file}")
+    print(f"Saved {len(ranking)} competitor rankings to {output_file}")
     print("\nTop 10:")
     for r in ranking[:10]:
-        print(f"{r['rank']:>2}. {r['team']}")
+        print(f"{r['rank']:>2}. {r['competitor']}")
