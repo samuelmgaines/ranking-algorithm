@@ -30,10 +30,10 @@ For each game $(c_i, c_j)$, we can compute an inconsistency score. If $r_i > r_j
 The total inconsistency score of the ranking is just the sum of all the inconsistency scores of the games. Our objective is to minimize this total inconsistency score. Combine this objective with the rank constraints outlined earlier, and we see the optimization problem $(1)$ that defines our ranking system.
 
 $$
-\text{min} \sum_{(c_i, c_j) \in G} max(0, r_j - r_i)\\
-\text{s.t. }r_i \neq r_j \text{ } \forall \text{ } i,j \in \{1, ..., n\}, i \neq j;\\
-0\leq r_i \leq n \text{ } \forall \text{ } i \in \{1, ..., n\};\\
-r_i \in \mathbb{Z} \text{ } \forall \text{ } i \in \{1, ..., n\}
+min\sum_{(c_i, c_j) \in G} max(0, r_j - r_i)\\
+s.t. r_i \neq r_j \text{ } \forall \text{ } i,j \in \{1, ..., n\}, i \neq j;\\
+0\leq r_i \leq n \forall i \in \{1, ..., n\};\\
+r_i \in \mathbb{Z} \forall i \in \{1, ..., n\}
 \tag{1}
 $$
 
