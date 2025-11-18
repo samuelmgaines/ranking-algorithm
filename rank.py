@@ -13,9 +13,11 @@ ALPHA = int(os.getenv('ALPHA', 1))
 K = float(os.getenv('K', 2.0))
 LAMBDA = float(os.getenv('LAMBDA', 0.5))
 EPSILON = float(os.getenv('EPSILON', 0.001))
-MAX_ITER = int(os.getenv('MAX_ITER', 100000))
 SEED = int(os.getenv('SEED', 42))
+ANNEALING_ITER = int(os.getenv('ANNEALING_ITER', 100000))
+COOLING_RATE = float(os.getenv('COOLING_RATE', 0.98))  # Cooling rate for simulated annealing
 MAX_SLIDE_PASSES = int(os.getenv('MAX_SLIDE_PASSES', 1000))
+WINDOW_SEARCH_SIZE = int(os.getenv('WINDOW_SEARCH_SIZE', 3))  # Max slide distance
 
 def compute_sos(ranking, games):
     """Compute strength of schedule for each competitor based on the ranking."""
@@ -119,16 +121,23 @@ def ranking_loss(order, games, include_sos=True):
     
     return total_loss
 
-def optimize_ranking(games, competitors_file=None, max_iter=MAX_ITER, seed=SEED):
+def optimize_ranking(games,
+                     competitors_file=None,
+                     max_iter=ANNEALING_ITER,
+                     seed=SEED,
+                     cooling_rate=COOLING_RATE,
+                     max_slide_passes=MAX_SLIDE_PASSES,
+                     window_search_size=WINDOW_SEARCH_SIZE):
     """Use simulated annealing to find a near-optimal ranking."""
     start_time = time.time()
     random.seed(seed)
     competitors = list({g["winner"] for g in games} | {g["loser"] for g in games})
     random.shuffle(competitors)
-    
+
     print(f"Starting optimization for {len(competitors)} competitors")
     print(f"Parameters: ALPHA={ALPHA}, K={K}, LAMBDA={LAMBDA}, EPSILON={EPSILON}")
-    print(f"Max iterations: {max_iter:,}, Seed: {seed}, Max slide passes: {MAX_SLIDE_PASSES}")
+    print(f"Seed: {seed}, Annealing Iterations: {max_iter}, Cooling Rate: {cooling_rate}")
+    print(f"Maximum Sliding Passes: {max_slide_passes}, Window Search Size: {window_search_size}")
     print("-" * 50)
     
     best_order = competitors[:]
@@ -156,13 +165,10 @@ def optimize_ranking(games, competitors_file=None, max_iter=MAX_ITER, seed=SEED)
             if new_loss < best_loss:
                 best_loss = new_loss
                 best_order = new_order
-                # Print improvement when we find a new best
-                if step % 1000 == 0:  # Don't print too often
-                    print(f"Iteration {step:,}: New best loss = {best_loss:.2f}")
 
         # Gradually cool temperature
         if step % 1000 == 0:
-            temperature *= 0.999
+            temperature *= cooling_rate
             
         # Print progress every 10 seconds
         current_time = time.time()
@@ -175,16 +181,17 @@ def optimize_ranking(games, competitors_file=None, max_iter=MAX_ITER, seed=SEED)
 
     annealing_time = time.time() - start_time
     print(f"Simulated annealing completed in {annealing_time:.1f} seconds")
-    print(f"Final loss after annealing: {best_loss:.4f}")
+    print(f"Final loss after annealing: {best_loss:.4f}\n")
+    loss_after_annealing = best_loss
 
     # Sliding optimization
     print("Starting sliding optimization...")
     sliding_start_time = time.time()
     total_passes = 0
-    max_slide_distance = 3
-    improvements_made = 0
-    
-    while total_passes < MAX_SLIDE_PASSES:
+    max_slide_distance = window_search_size
+    slide_improvements_made = 0
+
+    while total_passes < max_slide_passes:
         total_passes += 1
         improved = False
         
@@ -232,26 +239,23 @@ def optimize_ranking(games, competitors_file=None, max_iter=MAX_ITER, seed=SEED)
                 best_order = new_order
                 best_loss = best_slide_loss
                 improved = True
-                improvements_made += 1
-                print(f"Slide improvement #{improvements_made}: Moved '{competitor}' from {current_pos+1} to {best_slide_pos+1}, new loss: {best_loss:.4f}")
+                slide_improvements_made += 1
+                print(f"Slide improvement #{slide_improvements_made}: Moved '{competitor}' from {current_pos+1} to {best_slide_pos+1}, new loss: {best_loss:.4f}")
                 break  # Restart from the beginning after any change
         
         if not improved:
             break
-            
-        # Print progress every 10 passes
-        if total_passes % 10 == 0:
-            print(f"Sliding pass {total_passes}, current loss: {best_loss:.4f}")
 
     sliding_time = time.time() - sliding_start_time
     total_time = time.time() - start_time
-    print(f"Sliding optimization completed in {total_passes} passes ({sliding_time:.1f}s)")
-    print(f"Made {improvements_made} sliding improvements")
+    if total_passes == max_slide_passes:
+        print(f"Reached maximum sliding passes ({max_slide_passes})\n")
+    else:
+        print(f"Sliding optimization completed in {total_passes} passes ({sliding_time:.1f}s)\n")
     print(f"Total optimization time: {total_time:.1f} seconds")
-    print(f"Final loss: {best_loss:.4f}")
+    print(f"Final loss: {best_loss:.4f}\n")
 
     # Compute metrics on the FULL ranking with ALL teams
-    print("Computing detailed metrics on full ranking with ALL teams...")
     full_inconsistency_scores, full_inconsistent_games = compute_inconsistency(best_order, games)
     full_sos_norm = compute_sos(best_order, games)
     
@@ -281,7 +285,7 @@ def optimize_ranking(games, competitors_file=None, max_iter=MAX_ITER, seed=SEED)
         
         original_count = len(full_ranking)
         filtered_count = len(filtered_ranking)
-        print(f"Filtered from {original_count} to {filtered_count} competitors")
+        print(f"Filtered from {original_count} to {filtered_count} competitors\n")
         
         # Sort filtered ranking by original rank and recompute sequential rankings
         filtered_ranking.sort(key=lambda x: x["rank"])
@@ -297,9 +301,9 @@ def optimize_ranking(games, competitors_file=None, max_iter=MAX_ITER, seed=SEED)
                 "inconsistent_games": entry["inconsistent_games"]  # Preserved from full computation
             }
         
-        return filtered_ranking, best_loss
+        return filtered_ranking, best_loss, loss_after_annealing, slide_improvements_made
     else:
-        return full_ranking, best_loss
+        return full_ranking, best_loss, loss_after_annealing, slide_improvements_made
 
 if __name__ == "__main__":
     input_file = input("Enter input file from data/ with game results: ")
@@ -320,21 +324,30 @@ if __name__ == "__main__":
     with open(input_file, "r", encoding="utf-8") as f:
         games = json.load(f)
 
-    print(f"Loaded {len(games)} games...")
-    ranking, loss = optimize_ranking(games, competitors_file if competitors_file else None)
+    print(f"Loaded {len(games)} games\n")
+    ranking, loss, loss_after_annealing, slide_improvements_made = optimize_ranking(games, competitors_file if competitors_file else None)
 
     print("Saving results...")
     # Create the enhanced output structure
     output_data = {
-        "loss": loss,
         "parameters": {
             "ALPHA": ALPHA,
             "K": K,
             "LAMBDA": LAMBDA,
             "EPSILON": EPSILON,
-            "MAX_ITER": MAX_ITER,
+            "SEED": SEED,
+            "ANNEALING_ITER": ANNEALING_ITER,
+            "COOLING_RATE": COOLING_RATE,
             "MAX_SLIDE_PASSES": MAX_SLIDE_PASSES,
-            "SEED": SEED
+            "WINDOW_SEARCH_SIZE": WINDOW_SEARCH_SIZE
+        },
+        "info": {
+            "final_loss": loss,
+            "loss_after_annealing": loss_after_annealing,
+            "slide_improvements_made": slide_improvements_made,
+            "total_games": len(games),
+            "total_competitors": len({g["winner"] for g in games} | {g["loser"] for g in games}),
+            "ranked_competitors": len(ranking)
         },
         "ranking": ranking
     }
@@ -342,9 +355,9 @@ if __name__ == "__main__":
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
 
-    print(f"Saved {len(ranking)} competitor rankings to {output_file}")
+    print(f"Saved {len(ranking)} competitor rankings to {output_file}\n")
     print(f"Total loss: {loss:.4f}")
-    print("\nTop 10:")
+    print("Top 10:")
     for r in ranking[:10]:
         inconsistent_count = len(r['inconsistent_games'])
         print(f"{r['rank']:>2}. {r['competitor']} "

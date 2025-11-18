@@ -199,14 +199,209 @@ Together, these components produce rankings that are consistent, interpretable, 
 
 ## The Computation
 
-Description of how the ranking is actually computed.
+The optimization problem in $(4)$ is combinatorial: the feasible set consists of all permutations of ${1, ..., n}$, and even for moderate $n$, the search space $n!$ is far too large for exhaustive search.
 
-TODO:
+Accordingly, the solver employs **stochastic discrete optimization** consisting of two complementary procedures:
 
--   Make cooling rate a parameter
--   Make max window search a parameter
--   Output sliding passes actually used
+1. **Simulated Annealing** — a global heuristic designed to escape poor local minima;
+2. **Sliding Optimization** — a deterministic local refinement method restricted to small contiguous moves.
+
+The annealing stage explores the permutation space broadly and identifies a near-optimal basin, while the sliding stage performs a fine-grained local search to converge to a stable minimum of the objective.
+
+Both methods evaluate candidate rankings using the complete objective function in $(4)$, including inconsistency penalties and the normalized SOS tie-breaker. All computations treat the rank vector as an ordered list (a permutation of competitors), with index position $i$ corresponding to rank $i+1$.
+
+### Simulated Annealing
+
+Simulated annealing provides a probabilistic framework for minimizing a discrete objective function that may contain many local minima.
+
+Let $r$ denote the current permutation and $L(r)$ the loss defined in $(4)$.
+
+At each iteration:
+
+1. Two competitors are selected uniformly at random.
+2. Their positions in the ordering are swapped, producing a new permutation $r'$.
+3. The loss difference $\Delta=L(r')-L(r)$ is computed
+4. The new state is accepted according to the Metropolis criterion:
+    $$
+    r \leftarrow \begin{cases}
+        r' & \text{if } \Delta < 0,\\
+        r' & \text{with probability } \exp(-\Delta / T),\\
+        r & \text{otherwise},
+    \end{cases}
+    $$
+    where $T>0$ is the current temperature.
+
+The temperature decreases geometrically every 1,000 iterations according to
+
+$$
+T_{k+1}=\begin{cases}
+    \gamma T_k & \text{if } k \equiv 0 \mod 1000,\\
+    T_k & \text{otherwise},
+\end{cases}
+$$
+
+where $0<\gamma<1$ is a specified **cooling rate** parameter.
+
+This schedule enables broad exploration early (high $T$) and increasingly selective refinement as $T \rightarrow 0$.
+
+Several properties of this implementation are worth noting:
+
+-   **Move structure.** Each proposal is a single transposition, the simplest non-trivial move on the permutation group. Because any permutation can be expressed as a sequence of transpositions, and the algorithm selects every possible transposition with positive probability, the induced Markov chain is irreducible: every ranking is reachable from every other ranking. This ensures the annealing process can fully explore the permutation space rather than becoming trapped in a restricted subset.
+-   **Energy landscape.** Because inconsistency losses are integer-valued and SOS contributions are strictly bounded by construction, the annealing dynamics primarily explore the integer part of the objective with fractional corrections discouraging but never overriding the consistency-driven structure.
+-   **Best-state tracking.** The algorithm retains the best permutation observed at any temperature, guaranteeing monotonic improvement of the reported solution even though the Markov chain itself may accept uphill moves.
+
+This stage terminates after a decided amount iterations and returns a near-optimal ranking that typically lies within the attraction basin of the true minimum.
+
+### Sliding Optimization
+
+Following annealing, a deterministic **sliding optimization** procedure refines the ranking by examining small localized adjustments.
+
+For each competitor currently at position $i$, the method considers moving that competitor a bounded number of positions upward or downward:
+
+$$
+i \rightarrow i + s, \text{ } i \rightarrow i - s, \text{ } 1 \leq s \leq W
+$$
+
+where $W$ is a specified **window search size**.
+
+For each feasible shift, a new permutation is formed by removing the competitor from its original position and reinserting it at the candidate location; all other relative orders are preserved.
+
+For each competitor:
+
+1. All upward and downward slides within the window are evaluated.
+2. The slide yielding the smallest loss is identified.
+3. If that slide improves the global objective, it is applied immediately.
+4. The process restarts from the top of the ranking after every successful improvement.
+
+This “first-improvement restart” strategy ensures that local dependencies are respected: repositioning a single competitor often alters the optimal moves for those around it, so restarting prevents stale assumptions about local structure.
+
+The sliding stage repeats until either:
+
+-   a full pass over all competitors yields no improvement, or
+
+-   the decided maximum number of passes is reached.
+
+Because slides are strictly loss-decreasing, this stage converges to a **local minimum within the neighborhood of contiguous moves up to size $W$.**
+
+Empirically, annealing identifies a strong basin, and sliding then resolves fine-grained rank ordering that transposition dynamics alone often fail to discover.
 
 ## The Repository
 
-Description of the parts of the repository and how to use it.
+This section describes the structure of the repository, the required environment variables, the expected file formats, and how to run the ranking procedure on an arbitrary set of pairwise game results. An example using 2025 college football data is also provided.
+
+### Repository Structure
+
+```
+.
+├── rank.py                 # Optimization solver implementing the ranking algorithm
+├── helpers/pull_cfb.py     # Helper script for scraping CFB game results (FBS/FCS)
+├── data/                   # Input game and team files
+├── rankings/               # Output files
+├── .env                    # Environment variable definitions (optional)
+└── README.md               # This document
+```
+
+The core solver is `rank.py`, which loads game results, applies the filtering rules, constructs the optimization problem described in $(4)$, and performs simulated annealing followed by sliding optimization to obtain a final ranking.
+
+### Environment Variables
+
+The solver reads several configuration parameters from the environment. Any parameter omitted from the environment uses its built-in default value.
+
+| Variable             | Meaning                                                    | Default  |
+| -------------------- | ---------------------------------------------------------- | -------- |
+| `ALPHA`              | Inconsistency penalty per contradictory game (integer)     | `1`      |
+| `K_VALUE`            | Exponent (k) in SOS computations                           | `1.0`    |
+| `LAMBDA`             | Weighting of wins vs. losses in SOS                        | `0.5`    |
+| `EPSILON`            | Small constant ensuring strict SOS bounds                  | `1e-9`   |
+| `ANNEALING_ITER`     | Total number of simulated annealing iterations             | `200000` |
+| `COOLING_RATE`       | Geometric multiplier for temperature drops                 | `0.99`   |
+| `WINDOW_SEARCH_SIZE` | Maximum slide distance in sliding optimization             | `3`      |
+| `MAX_SLIDE_PASSES`   | Maximum full passes through all competitors during sliding | `8`      |
+
+If you use the helper script `helpers/pull_cfb.py`, it requires:
+
+| Variable       | Meaning                             |
+| -------------- | ----------------------------------- |
+| `CFBD_API_KEY` | API key for CollegeFootballData.com |
+
+This variable is **only** required if you run the scraper.
+
+### Input File Format (Game Results)
+
+The solver expects the game list in a JSON file. Each entry must contain exactly two fields:
+
+```json
+[
+  { "winner": "Team A", "loser": "Team B" },
+  { "winner": "Team C", "loser": "Team D" },
+  ...
+]
+```
+
+-   Each item represents one completed game.
+-   The objects are interpreted literally: in the example above, Team A defeated Team B, and Team C defeated Team D.
+
+This file may contain any number of games and any number of repeated matchups. The algorithm automatically treats the list as a multiset, as described in the formulation. The file must be placed in the `data/` directory.
+
+### Team Filtering
+
+You may optionally restrict the ranking to a subset of competitors—for example, only FBS teams, or only teams in a particular league.
+
+To do this, create a file containing a JSON array of competitor names:
+
+```json
+["Alabama", "Ohio State", "Boise State", ...]
+```
+
+The solver computes a ranking on the full set of games. Then, the solver removes competitors that are not present in the filter file.
+
+This approach allows you to scrape a superset of data (e.g., FBS + FCS) while restricting the final ranking to a particular division.
+
+### Output Files
+
+Rankings are written to the `rankings/` directory. Output file name is specified as input in the console, but defaults to `output.json`.
+
+An output file has the structure:
+
+```json
+{
+  "loss": 1860.9826657852248,
+  "parameters": {
+    "ALPHA": 1,
+    "K": 2.5,
+    "LAMBDA": 0.67,
+    "EPSILON": 0.001,
+    "MAX_ITER": 2000000,
+    "MAX_SLIDE_PASSES": 1000,
+    "SEED": 42
+  },
+  "ranking": [
+    {
+      "rank": 1,
+      "competitor": "Team A",
+      "inconsistency_score": 0,
+      "SOS": 0.658520019039728,
+      "inconsistent_games": []
+    },
+    ...
+    {
+      "rank": 5,
+      "competitor": "Team B",
+      "inconsistency_score": 53,
+      "SOS": 0.6627604786107557,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Team C",
+          "magnitude": 52
+        }
+      ]
+    },
+    ...
+  ]
+}
+```
+
+## Example: 2025 College Football Rankings
+
+Details about the example provided.
