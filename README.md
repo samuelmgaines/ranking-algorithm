@@ -294,8 +294,8 @@ This section describes the structure of the repository, the required environment
 ```
 .
 ├── rank.py                 # Optimization solver implementing the ranking algorithm
-├── helpers/pull_cfb.py     # Helper script for scraping CFB game results (FBS/FCS)
-├── data/                   # Input game and team files
+├── helpers/                # Helper scripts
+├── data/                   # Input game and competitor filter files
 ├── rankings/               # Output files
 ├── .env                    # Environment variable definitions (optional)
 └── README.md               # This document
@@ -318,14 +318,6 @@ The solver reads several configuration parameters from the environment. Any para
 | `WINDOW_SEARCH_SIZE` | Maximum slide distance in sliding optimization             | `3`      |
 | `MAX_SLIDE_PASSES`   | Maximum full passes through all competitors during sliding | `8`      |
 
-If you use the helper script `helpers/pull_cfb.py`, it requires:
-
-| Variable       | Meaning                             |
-| -------------- | ----------------------------------- |
-| `CFBD_API_KEY` | API key for CollegeFootballData.com |
-
-This variable is **only** required if you run the scraper.
-
 ### Input File Format (Game Results)
 
 The solver expects the game list in a JSON file. Each entry must contain exactly two fields:
@@ -343,14 +335,14 @@ The solver expects the game list in a JSON file. Each entry must contain exactly
 
 This file may contain any number of games and any number of repeated matchups. The algorithm automatically treats the list as a multiset, as described in the formulation. The file must be placed in the `data/` directory.
 
-### Team Filtering
+### Competitor Filtering
 
 You may optionally restrict the ranking to a subset of competitors—for example, only FBS teams, or only teams in a particular league.
 
 To do this, create a file containing a JSON array of competitor names:
 
 ```json
-["Alabama", "Ohio State", "Boise State", ...]
+["Team A", "Team B", "Team C", ...]
 ```
 
 The solver computes a ranking on the full set of games. Then, the solver removes competitors that are not present in the filter file.
@@ -404,4 +396,36 @@ An output file has the structure:
 
 ## Example: 2025 College Football Rankings
 
-Details about the example provided.
+This repository includes an example using real college football data. It contains:
+
+-   a CFB game scraper: `helpers/pull_cfb.py`,
+-   a JSON array of FBS teams: `data/fbs_team.json`
+-   a final college football ranking: `rankings/cfb_2025_ranking.json`
+
+This example demonstrates how to generate fully reproducible rankings from publicly available CollegeFootballData (CFBD) results.
+
+### The Scraper
+
+The `pull_cfb.py` file in the `helpers/` directory downloads game data for a given year using the CollegeFootballData API. It does the following:
+
+1. Loads your API key from the `.env` file:
+    ```
+    CFBD_API_KEY=your_key_here
+    ```
+2. Prompts the user for a year.
+3. Queries:
+    ```
+    https://api.collegefootballdata.com/games?year=YYYY
+    ```
+4. Filters the results to **completed** games only.
+5. Keeps only games where both teams are either **FBS** or **FCS**.
+6. Computes a simple winner/loser pair from final points.
+7. Writes the game list to `data/cfb_<year>_games.json`
+
+### FBS Ranking
+
+Even though the goal is to rank only the FBS teams, the scraped data includes both FBS and FCS teams because _they can play each other_. This ensures that FBS teams are properly rewarded or penalized for beating or losing to an FCS team.
+
+To filter out the FCS teams from the final ranking, the filter file `fbs_teams.json` in the `data/` can be provided to the ranking script.
+
+The computed FBS ranking can be found in `rankings/cfb_2025_ranking`. The file contains information on the parameters used.
