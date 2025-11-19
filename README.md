@@ -8,7 +8,15 @@ Committee-based systems generate controversy, yet relying solely on win–loss r
 
 My view is that **the most important property of a ranking is consistency**—if competitor $A$ defeats competitor $B$, then $A$ should be ranked higher than $B$.
 
-This document introduces a ranking system that **prioritizes consistency above all else**, and then enhances it with tunable parameters that address realistic edge cases. This remains a work in progress.
+This document introduces a ranking system that **prioritizes consistency above all else**, and then enhances it with tunable parameters that address realistic edge cases.
+
+## Quick Start
+
+1.  **Prepare your data:** Place game results in `data/games.json` following the [Input File Format](#input-file-format-game-results).
+2.  **Optional filtering:** Create `data/filter.json` with competitors to include in the final ranking.
+3.  **Configure parameters:** Set environment variables in `.env` (optional).
+4.  **Run the solver:** Execute `python rank.py` and response to console prompts.
+5.  **View results:** Find the ranking in `rankings/output.json` or specified output file.
 
 ## The First Ranking System
 
@@ -131,7 +139,7 @@ $$
 
 Here:
 
--   $\epsilon > 0$ ensures division remains well*defined \_and* keeps SOS strictly less than $1$ in magnitude, which will preserve consistency dominance.
+-   $\epsilon > 0$ ensures division remains well-defined and keeps SOS strictly less than $1$ in magnitude, which will preserve consistency dominance.
 -   $\lambda \in [0, 1]$ sets the win/loss weighting.
 -   $k \geq 0$ controls the emphasis on opponent quality.
 
@@ -162,10 +170,13 @@ Multiplying by $r_i$ ensures:
 -   Because the objective is minimized, a higher SOS is preferred when paired with a smaller $r_i$ (a better rank).
 -   This aligns the minimization with the intuitive principle that stronger schedules should correspond to better ranks.
 
-The scaling factor $\frac{2}{n(n+1)}$ ensures:
+The scaling factor $\frac{2}{n(n+1)}$ ensures the SOS term is strictly less than $1$ in magnitude. This guarantees that inconsistency scores—which are integers due to integer $\alpha$—always dominate SOS effects. From equation $(3)$, each $\text{SOS}_i$ is bounded by $(\lambda - 1, \lambda)$. The extreme values of the sum $\sum_{i=1}^n(\text{SOS}_i \cdot r_i)$ occur when:
 
--   This term is strictly less than $1$ in magnitude.
--   Inconsistency scores—which are integers due to integer $\alpha$—always dominate SOS effects.
+-   All $\text{SOS}_i = \lambda$ and competitors are ordered optimally, giving $\lambda \cdot n(n+1)/2$
+
+-   All $\text{SOS}_i = \lambda - 1$ and competitors are ordered optimally, giving $(\lambda - 1) \cdot n(n+1)/2$
+
+The scaling factor normalizes these extremes to ensure the SOS term magnitude remains below $1$.
 
 Thus, the system remains philosophically consistent: strength of schedule matters _only after_ consistency is maximized.
 
@@ -250,7 +261,7 @@ Several properties of this implementation are worth noting:
 -   **Energy landscape.** Because inconsistency losses are integer-valued and SOS contributions are strictly bounded by construction, the annealing dynamics primarily explore the integer part of the objective with fractional corrections discouraging but never overriding the consistency-driven structure.
 -   **Best-state tracking.** The algorithm retains the best permutation observed at any temperature, guaranteeing monotonic improvement of the reported solution even though the Markov chain itself may accept uphill moves.
 
-This stage terminates after a decided amount iterations and returns a near-optimal ranking that typically lies within the attraction basin of the true minimum.
+This stage terminates after a predetermined amount iterations and returns a near-optimal ranking that typically lies within the attraction basin of the true minimum.
 
 ### Sliding Optimization
 
@@ -279,7 +290,7 @@ The sliding stage repeats until either:
 
 -   a full pass over all competitors yields no improvement, or
 
--   the decided maximum number of passes is reached.
+-   the predetermined maximum number of passes is reached.
 
 Because slides are strictly loss-decreasing, this stage converges to a **local minimum within the neighborhood of contiguous moves up to size $W$.**
 
@@ -303,20 +314,30 @@ This section describes the structure of the repository, the required environment
 
 The core solver is `rank.py`, which loads game results, applies the filtering rules, constructs the optimization problem described in $(4)$, and performs simulated annealing followed by sliding optimization to obtain a final ranking.
 
+### Installation
+
+1. **Clone or download** this repository
+2. **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+3. **Optional:**: Create a `.env` file for custom parameters (see [Environment Variables](#environment-variables))
+
 ### Environment Variables
 
 The solver reads several configuration parameters from the environment. Any parameter omitted from the environment uses its built-in default value.
 
-| Variable             | Meaning                                                    | Default  |
-| -------------------- | ---------------------------------------------------------- | -------- |
-| `ALPHA`              | Inconsistency penalty per contradictory game (integer)     | `1`      |
-| `K_VALUE`            | Exponent (k) in SOS computations                           | `1.0`    |
-| `LAMBDA`             | Weighting of wins vs. losses in SOS                        | `0.5`    |
-| `EPSILON`            | Small constant ensuring strict SOS bounds                  | `1e-9`   |
-| `ANNEALING_ITER`     | Total number of simulated annealing iterations             | `200000` |
-| `COOLING_RATE`       | Geometric multiplier for temperature drops                 | `0.99`   |
-| `WINDOW_SEARCH_SIZE` | Maximum slide distance in sliding optimization             | `3`      |
-| `MAX_SLIDE_PASSES`   | Maximum full passes through all competitors during sliding | `8`      |
+| Variable             | Meaning                                                                     | Default  |
+| -------------------- | --------------------------------------------------------------------------- | -------- |
+| `ALPHA`              | Penalty per inconsistent game (favors fewer inconsistencies over magnitude) | `1`      |
+| `K`                  | Exponent in SOS computations (emphasizes elite wins/bad losses)             | `2.0`    |
+| `LAMBDA`             | Weighting of wins (1.0) vs. losses (0.0) in SOS                             | `0.5`    |
+| `EPSILON`            | Small constant ensuring strict SOS bounds                                   | `0.001`  |
+| `SEED`               | Random seed for reproducible results                                        | `42`     |
+| `ANNEALING_ITER`     | Total simulated annealing iterations                                        | `200000` |
+| `COOLING_RATE`       | Temperature reduction rate (per 1,000 iterations)                           | `0.99`   |
+| `WINDOW_SEARCH_SIZE` | Maximum slide distance in local optimization                                | `3`      |
+| `MAX_SLIDE_PASSES`   | Maximum full passes during sliding optimization                             | `1000`   |
 
 ### Input File Format (Game Results)
 
@@ -345,9 +366,7 @@ To do this, create a file containing a JSON array of competitor names:
 ["Team A", "Team B", "Team C", ...]
 ```
 
-The solver computes a ranking on the full set of games. Then, the solver removes competitors that are not present in the filter file.
-
-This approach allows you to scrape a superset of data (e.g., FBS + FCS) while restricting the final ranking to a particular division.
+The solver computes a ranking for **all competitors** present in the game data. Then, it filters out any competitors not listed in the filter file. This approach ensures that games against filtered-out opponents (e.g., an FBS team beating an FCS team) are still counted in the inconsistency and Strength of Schedule calculation for the remaining competitors, while excluding those opponents from the final ranking list.
 
 ### Output Files
 
@@ -357,16 +376,25 @@ An output file has the structure:
 
 ```json
 {
-  "loss": 1860.9826657852248,
-  "parameters": {
-    "ALPHA": 1,
-    "K": 2.5,
-    "LAMBDA": 0.67,
-    "EPSILON": 0.001,
-    "MAX_ITER": 2000000,
-    "MAX_SLIDE_PASSES": 1000,
-    "SEED": 42
-  },
+	"parameters": {
+		"ALPHA": 1,
+		"K": 2.5,
+		"LAMBDA": 0.67,
+		"EPSILON": 0.001,
+		"SEED": 42,
+		"ANNEALING_ITER": 2000000,
+		"COOLING_RATE": 0.998,
+		"MAX_SLIDE_PASSES": 2000,
+		"WINDOW_SEARCH_SIZE": 5
+	},
+	"info": {
+		"final_loss": 1979.991882573818,
+		"loss_after_annealing": 1981.993108416549,
+		"slide_improvements_made": 63,
+		"total_games": 1351,
+		"total_competitors": 265,
+		"ranked_competitors": 136
+	},
   "ranking": [
     {
       "rank": 1,
@@ -406,21 +434,41 @@ This example demonstrates how to generate fully reproducible rankings from publi
 
 ### The Scraper
 
-The `pull_cfb.py` file in the `helpers/` directory downloads game data for a given year using the CollegeFootballData API. It does the following:
+The `pull_cfb.py` file in the `helpers/` directory downloads game data for a given year using the CollegeFootballData API.
 
-1. Loads your API key from the `.env` file:
-    ```
-    CFBD_API_KEY=your_key_here
-    ```
-2. Prompts the user for a year.
-3. Queries:
-    ```
-    https://api.collegefootballdata.com/games?year=YYYY
-    ```
-4. Filters the results to **completed** games only.
-5. Keeps only games where both teams are either **FBS** or **FCS**.
-6. Computes a simple winner/loser pair from final points.
-7. Writes the game list to `data/cfb_<year>_games.json`
+#### Prerequisites
+
+1. Get a free API key from [CollegeFootballData.com](https://collegefootballdata.com/key)
+2. Add it to your `.env` file:
+
+```
+CFBD_API_KEY=your_key_here
+```
+
+#### Usage
+
+```bash
+cd helpers
+python pull_cfb.py
+```
+
+The script will:
+
+1. Prompt you for a year (e.g., 2024)
+
+2. Download all completed FBS/FCS games for that year
+
+3. Save to data/cfb\_<year>\_games.json
+
+#### Output Format
+
+The generated file follows the required input format and includes:
+
+-   All regular season and postseason games
+
+-   Both FBS and FCS teams
+
+-   Games filtered to completed status only
 
 ### FBS Ranking
 
@@ -428,4 +476,4 @@ Even though the goal is to rank only the FBS teams, the scraped data includes bo
 
 To filter out the FCS teams from the final ranking, the filter file `fbs_teams.json` in the `data/` can be provided to the ranking script.
 
-The computed FBS ranking can be found in `rankings/cfb_2025_ranking`. The file contains information on the parameters used.
+The computed FBS ranking can be found in `rankings/cfb_2025_ranking.json`. The file contains information on the parameters used.

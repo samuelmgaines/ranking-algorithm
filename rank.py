@@ -14,8 +14,8 @@ K = float(os.getenv('K', 2.0))
 LAMBDA = float(os.getenv('LAMBDA', 0.5))
 EPSILON = float(os.getenv('EPSILON', 0.001))
 SEED = int(os.getenv('SEED', 42))
-ANNEALING_ITER = int(os.getenv('ANNEALING_ITER', 100000))
-COOLING_RATE = float(os.getenv('COOLING_RATE', 0.98))  # Cooling rate for simulated annealing
+ANNEALING_ITER = int(os.getenv('ANNEALING_ITER', 200000))
+COOLING_RATE = float(os.getenv('COOLING_RATE', 0.99))  # Cooling rate for simulated annealing
 MAX_SLIDE_PASSES = int(os.getenv('MAX_SLIDE_PASSES', 1000))
 WINDOW_SEARCH_SIZE = int(os.getenv('WINDOW_SEARCH_SIZE', 3))  # Max slide distance
 
