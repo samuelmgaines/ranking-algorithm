@@ -460,7 +460,7 @@ The script will:
 
 2. Download all completed FBS/FCS games for that year
 
-3. Save to data/cfb\_<year>\_games.json
+3. Save to `data/cfb_YYYY_games.json`
 
 #### Output Format
 
