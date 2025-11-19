@@ -233,6 +233,7 @@ At each iteration:
 2. Their positions in the ordering are swapped, producing a new permutation $r'$.
 3. The loss difference $\Delta=L(r')-L(r)$ is computed
 4. The new state is accepted according to the Metropolis criterion:
+
     $$
     r \leftarrow \begin{cases}
         r' & \text{if } \Delta < 0,\\
@@ -240,6 +241,7 @@ At each iteration:
         r & \text{otherwise},
     \end{cases}
     $$
+
     where $T>0$ is the current temperature.
 
 The temperature decreases geometrically every 1,000 iterations according to
