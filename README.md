@@ -476,6 +476,6 @@ The generated file follows the required input format and includes:
 
 Even though the goal is to rank only the FBS teams, the scraped data includes both FBS and FCS teams because _they can play each other_. This ensures that FBS teams are properly rewarded or penalized for beating or losing to an FCS team.
 
-To filter out the FCS teams from the final ranking, the filter file `fbs_teams.json` in the `data/` can be provided to the ranking script.
+To filter out the FCS teams from the final ranking, the filter file `fbs_teams.json` in the `data/` directory can be provided to the ranking script.
 
 The computed FBS ranking can be found in `rankings/cfb_2025_ranking.json`. The file contains information on the parameters used.
