@@ -12,11 +12,11 @@ This document introduces a ranking system that **prioritizes consistency above a
 
 ## Quick Start
 
-1.  **Prepare your data:** Place game results in `data/games.json` following the [Input File Format](#input-file-format-game-results).
-2.  **Optional filtering:** Create `data/filter.json` with competitors to include in the final ranking.
+1.  **Prepare your data:** Place game results in the `data/` directory, following the [Input File Format](#input-file-format-game-results).
+2.  **Optional filtering:** Create a filter file in the `data/` directory with competitors to include in the final ranking.
 3.  **Configure parameters:** Set environment variables in `.env` (optional).
-4.  **Run the solver:** Execute `python rank.py` and response to console prompts.
-5.  **View results:** Find the ranking in `rankings/output.json` or specified output file.
+4.  **Run the solver:** Execute `python rank.py` and respond to console prompts.
+5.  **View results:** Find the ranking in `rankings/output.json` or the specified output file.
 
 ## The First Ranking System
 
