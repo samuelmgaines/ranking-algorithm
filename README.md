@@ -321,7 +321,7 @@ The core solver is `rank.py`, which loads game results, applies the filtering ru
     ```bash
     pip install -r requirements.txt
     ```
-3. **Optional:**: Create a `.env` file for custom parameters (see [Environment Variables](#environment-variables))
+3. **Optional:** Create a `.env` file for custom parameters (see [Environment Variables](#environment-variables))
 
 ### Environment Variables
 
