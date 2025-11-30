@@ -8,12 +8,12 @@ Committee-based systems generate controversy, yet relying solely on win–loss r
 
 My view is that **the most important property of a ranking is consistency**—if competitor $A$ defeats competitor $B$, then $A$ should be ranked higher than $B$.
 
-This document introduces a ranking system that **prioritizes consistency above all else**, and then enhances it with tunable parameters that address realistic edge cases.
+This document introduces a deterministic ranking system that **prioritizes consistency above all else**, and then enhances it with tunable parameters that address realistic edge cases.
 
 ## Quick Start
 
 1.  **Prepare your data:** Place game results in `data/games.json` following the [Input File Format](#input-file-format-game-results).
-2.  **Optional filtering:** Create `data/filter.json` with competitors to include in the final ranking.
+2.  **Competitor Filtering:** Create `data/filter.json` with competitors to include in the final ranking (optional).
 3.  **Configure parameters:** Set environment variables in `.env` (optional).
 4.  **Run the solver:** Execute `python rank.py` and response to console prompts.
 5.  **View results:** Find the ranking in `rankings/output.json` or specified output file.
@@ -69,19 +69,19 @@ We address each separately.
 
 ### Respecting Head-To-Head Results
 
-Consider three competitors $c_1$, $c_2$, and $c_3$:
+Consider three competitors $c_1$, $c_2$, and $c_3$ among many:
 
 -   $c_1$ beats $c_2$
 -   $c_1$ loses to $c_3$
 
 Suppose $c_1$ and $c_2$ are clearly above the rest. Under formulation $(1)$:
 
--   Ranking $c_1 = 1, c_2 = 2$ yields total inconsistency $r_3 - 1$.
--   Ranking $c_1 = 2, c_2 = 1$ yields total inconsistency $1 + (r_3 - 2) = r_3 - 1$.
+-   Ranking $c_1 = 1, c_2 = 2$ yields a total inconsistency score of $r_3 - 1$.
+-   Ranking $c_1 = 2, c_2 = 1$ yields a total inconsistency score of $1 + (r_3 - 2) = r_3 - 1$.
 
-Thus, both are equally consistent under $(1)$. But intuitively—and in common ranking systems—**if the magnitude ties, the ranking with fewer inconsistencies should be preferred**. In this example, $c_1$ should be ranked above $c_2$.
+Thus, both are equally consistent under $(1)$. But intuitively—and in common ranking systems—**if inconsistency magnitude ties, the ranking with fewer inconsistent games should be preferred**. In this example, $c_1$ should be ranked above $c_2$ since that ranking gives 1 inconsistent game of magnitude $r_3 - 1$ instead of 2 inconsistent games with the same total magnitude.
 
-To accomplish this, we introduce a parameter $\alpha \geq 0$ that assigns an additional penalty per inconsistent game. Define:
+To accomplish this, we introduce a parameter $\alpha \geq 0$ that assigns an additional penalty per inconsistent game. Define a new game inconsistency score function $I$:
 
 $$
 I(r_i, r_j, \alpha) =
@@ -95,23 +95,23 @@ $$
 Interpretation of $\alpha$:
 
 -   $\alpha = 0$: pure magnitude—this recovers formulation $(1)$.
--   $\alpha = 1$: ties in magnitude are broken by counting inconsistencies.
--   $\alpha > 1$: strongly prioritizes minimizing the _number_ of inconsistencies.
+-   $\alpha = 1$: ties in magnitude are broken by counting inconsistent games.
+-   $\alpha > 1$: strongly prioritizes minimizing the number of inconsistent games, potentially over the magnitude of them.
 
 Requiring $\alpha$ to be an integer ensures inconsistency scores remain integer-valued, which will be important later when we add a fractional tie-breaker.
 
 ### Considering Strength Of Schedule
 
-Even after prioritizing consistency and inconsistency counts, multiple rankings may have identical inconsistency scores. To distinguish these, we incorporate a **strength of schedule (SOS)** measure.
+It is still possible for multiple rankings to have identical inconsistency scores. To distinguish these, we incorporate a **strength of schedule (SOS)** measure.
 
 #### Computing SOS
 
-Critically, **We evaluate strength of schedule _only_ using consistent games.** Inconsistent games already affect the objective through inconsistency penalties.
+Critically, we evaluate strength of schedule only using **consistent games.** Inconsistent games already strongly affect the objective through inconsistency penalties. Additionally, we evaluate schedule using the **current best ranking**—SOS values are computed once and used for comparison, not recalculated for each candidate ranking. This prevents cascade effects from distorting tie-breaking decisions.
 
-For competitor $c_i$:
+For competitor $c_i$ in the current ranking:
 
--   $W_i$: set of opponents that $c_i$ defeated in **consistent** games.
--   $L_i$: set of opponents that defeated $c_i$ in **consistent** games.
+-   $W_i$: multiset of opponents that $c_i$ defeated in **consistent** games.
+-   $L_i$: multiset of opponents that defeated $c_i$ in **consistent** games.
 
 Define:
 
@@ -157,60 +157,61 @@ SOS behaves intuitively:
 -   Adding a consistent win always increases $\text{SOS}_i$.
 -   Adding a consistent loss always decreases $\text{SOS}_i$.
 
-#### Using SOS as a tie-breaker
+#### Using SOS as a Tie-breaker
 
-We incorporate strength of schedule using the term:
+We employ a **lexicographic optimization** approach that preserves the primary objective's dominance:
+
+1. **First,** minimize the total inconsistency score:
 
 $$
-\frac{2}{n(n+1)} \cdot \sum_{i=1}^n(\text{SOS}_i \cdot r_i).
+L_1(r) = \sum_{(c_i, c_j) \in G} I(r_i, r_j, \alpha)
+\tag{4}
 $$
 
-Multiplying by $r_i$ ensures:
+2. **Then,** among rankings with minimal $L_1$, maximize the SOS quality:
 
--   Because the objective is minimized, a higher SOS is preferred when paired with a smaller $r_i$ (a better rank).
--   This aligns the minimization with the intuitive principle that stronger schedules should correspond to better ranks.
+$$
+L_2(r) = \sum_{i=1}^n \text{SOS}_i \cdot (n - r_i + 1)
+\tag{5}
+$$
 
-The scaling factor $\frac{2}{n(n+1)}$ ensures the SOS term is strictly less than $1$ in magnitude. This guarantees that inconsistency scores—which are integers due to integer $\alpha$—always dominate SOS effects. From equation $(3)$, each $\text{SOS}_i$ is bounded by $(\lambda - 1, \lambda)$. The extreme values of the sum $\sum_{i=1}^n(\text{SOS}_i \cdot r_i)$ occur when:
-
--   All $\text{SOS}_i = \lambda$ and competitors are ordered optimally, giving $\lambda \cdot n(n+1)/2$
-
--   All $\text{SOS}_i = \lambda - 1$ and competitors are ordered optimally, giving $(\lambda - 1) \cdot n(n+1)/2$
-
-The scaling factor normalizes these extremes to ensure the SOS term magnitude remains below $1$.
-
-Thus, the system remains philosophically consistent: strength of schedule matters _only after_ consistency is maximized.
+The term $(n - r_i + 1)$ ensures that better ranks (smaller $r_i$) give higher weight to SOS values, and summing over all competitors provides a global measure of ranking quality.
 
 ### Improved Mathematical Formulation
 
-Combining everything, the final optimization problem is:
+The final formulation uses two-stage optimization:
+
+**Stage 1: Final all consistency-optimal rankings**
 
 $$
-\min \sum_{(c_i, c_j) \in G} I(r_i, r_j, \alpha) + \frac{2}{n(n+1)} \cdot \sum_{i=1}^n(\text{SOS}_i \cdot r_i)\\
-\text{s.t. } r_i \neq r_j \text{ } \forall \text{ } i \neq j, \\
-r_i \in {1, ..., n} \text{ } \forall \text{ } i.
-\tag{4}
+R^* = \{r \in P | L_1(r) = \min_{r'} L_1(r')\}
+\tag{6}
+$$
+
+**Stage 2: Select the best SOS ranking**
+
+$$
+r^* = \argmax_{r \in R^*} L_2(r)
+\tag{7}
 $$
 
 Where:
 
--   $I$ is defined in $(2)$
--   $\text{SOS}_i$ is defined in $(3)$
--   $W_i = \{c_j : (c_i, c_j) \in G \text{ and } r_i < r_j\}$
--   $L_i = \{c_j : (c_j, c_i) \in G \text{ and } r_i > r_j\}$
--   $\alpha \geq 0$ is an integer
--   $\epsilon > 0, k \geq 0, \lambda \in [0, 1]$
+-   $P$ is the set of all permulations of $\{1, ..., n\}$
+-   $L_1(r)$ is defined in $(4)$ and uses $I(r_i, r_j, \alpha)$, defined in $(2)$
+-   $L_2(r)$ is defined in $(5)$ and uses $\text{SOS}_i$, defined in $(3)$, computed from a reference ranking
 
 This formulation:
 
 -   **Minimizes inconsistency magnitude**
 -   **Minimizes number of inconsistencies** (via $\alpha$)
--   **Breaks remaining ties using strength of schedule**, scaled so that consistency always dominates
+-   **Breaks remaining ties using strength of schedule**
 
 Together, these components produce rankings that are consistent, interpretable, and tunably sensitive to quality of competition.
 
 ## The Computation
 
-The optimization problem in $(4)$ is combinatorial: the feasible set consists of all permutations of ${1, ..., n}$, and even for moderate $n$, the search space $n!$ is far too large for exhaustive search.
+The optimization problem in $(6)$ and $(7)$ is combinatorial: the feasible set consists of all permutations of ${1, ..., n}$, and even for moderate $n$, the search space $n!$ is far too large for exhaustive search.
 
 Accordingly, the solver employs **stochastic discrete optimization** consisting of two complementary procedures:
 
@@ -219,25 +220,26 @@ Accordingly, the solver employs **stochastic discrete optimization** consisting 
 
 The annealing stage explores the permutation space broadly and identifies a near-optimal basin, while the sliding stage performs a fine-grained local search to converge to a stable minimum of the objective.
 
-Both methods evaluate candidate rankings using the complete objective function in $(4)$, including inconsistency penalties and the normalized SOS tie-breaker. All computations treat the rank vector as an ordered list (a permutation of competitors), with index position $i$ corresponding to rank $i+1$.
+Both methods evaluate candidate rankings using the objective functions in $(6)$ and $(7)$, with the inconsistency penalties and the SOS tie-breaker. All computations treat the rank vector as an ordered list (a permutation of competitors), with index position $i$ corresponding to rank $i+1$.
 
 ### Simulated Annealing
 
 Simulated annealing provides a probabilistic framework for minimizing a discrete objective function that may contain many local minima.
 
-Let $r$ denote the current permutation and $L(r)$ the loss defined in $(4)$.
+Let $r$ denote the current permutation.
 
 At each iteration:
 
 1. Two competitors are selected uniformly at random.
 2. Their positions in the ordering are swapped, producing a new permutation $r'$.
-3. The loss difference $\Delta=L(r')-L(r)$ is computed
+3. The loss differences $\Delta_1=L_1(r')-L_1(r)$ and $\Delta_2=L_2(r')-L_2(r)$ are computed.
 4. The new state is accepted according to the Metropolis criterion:
 
     $$
     r \leftarrow \begin{cases}
-        r' & \text{if } \Delta < 0,\\
-        r' & \text{with probability } \exp(-\Delta / T),\\
+        r' & \text{if } \Delta_1 < 0,\\
+        r' & \text{if } \Delta_1 = 0 \text{ and } \Delta_2 > 0,\\
+        r' & \text{with probability } \exp(-\Delta_1 / T) \text{ if } \Delta_1 > 0,\\
         r & \text{otherwise},
     \end{cases}
     $$
@@ -253,7 +255,7 @@ T_{k+1}=\begin{cases}
 \end{cases}
 $$
 
-where $0<\gamma<1$ is a specified **cooling rate** parameter.
+where $T_0 = 1$ and $0<\gamma<1$ is a specified **cooling rate** parameter.
 
 This schedule enables broad exploration early (high $T$) and increasingly selective refinement as $T \rightarrow 0$.
 
@@ -282,8 +284,8 @@ For each feasible shift, a new permutation is formed by removing the competitor 
 For each competitor:
 
 1. All upward and downward slides within the window are evaluated.
-2. The slide yielding the smallest loss is identified.
-3. If that slide improves the global objective, it is applied immediately.
+2. The slide yielding the best overall ranking is identified.
+3. If that slide improves the ranking, it is applied immediately.
 4. The process restarts from the top of the ranking after every successful improvement.
 
 This “first-improvement restart” strategy ensures that local dependencies are respected: repositioning a single competitor often alters the optimal moves for those around it, so restarting prevents stale assumptions about local structure.
@@ -294,9 +296,9 @@ The sliding stage repeats until either:
 
 -   the predetermined maximum number of passes is reached.
 
-Because slides are strictly loss-decreasing, this stage converges to a **local minimum within the neighborhood of contiguous moves up to size $W$.**
+Because slides strictly improve the ranking, this stage converges to a **local optimum within the neighborhood of contiguous moves up to size $W$.**
 
-Empirically, annealing identifies a strong basin, and sliding then resolves fine-grained rank ordering that transposition dynamics alone often fail to discover.
+Empirically, annealing identifies a strong basin, and sliding then resolves fine-grained rank ordering that transposition dynamics alone are unlikely to discover.
 
 ## The Repository
 
@@ -360,7 +362,7 @@ This file may contain any number of games and any number of repeated matchups. T
 
 ### Competitor Filtering
 
-You may optionally restrict the ranking to a subset of competitors—for example, only FBS teams, or only teams in a particular league.
+You may optionally restrict the ranking to a subset of competitors—for example, only FBS teams, or only teams in a particular conference.
 
 To do this, create a file containing a JSON array of competitor names:
 
@@ -474,8 +476,22 @@ The generated file follows the required input format and includes:
 
 ### FBS Ranking
 
-Even though the goal is to rank only the FBS teams, the scraped data includes both FBS and FCS teams because _they can play each other_. This ensures that FBS teams are properly rewarded or penalized for beating or losing to an FCS team.
+Even though the goal is to rank only the FBS teams, the scraped data includes both FBS and FCS teams because they can play each other. This ensures that FBS teams are properly rewarded or penalized for beating or losing to an FCS team.
 
-To filter out the FCS teams from the final ranking, the filter file `fbs_teams.json` in the `data/` can be provided to the ranking script.
+To filter out the FCS teams from the final ranking, the filter file `fbs_teams.json` in the `data/` directory can be specified in the console when running the ranking script.
 
 The computed FBS ranking can be found in `rankings/cfb_2025_ranking.json`. The file contains information on the parameters used.
+
+## Helpers and Included Data
+
+The repository contains a few helper scripts to pull and simulate miscellaneous data. Details will not be specified here, but the scripts are fairly straight-forward.
+
+The repository also includes some game data, team data, and rankings. Files in the `data/` directory ending in `_games` contain game data. Files in the `data/` directory ending in `_teams` contain team filters. Files in the `rankings/` directory contain the ranking computed from the games and team filter, if applicable.
+
+<!-- ## Observations, Recommendations, and Shortcomings
+
+- conference/division clustering
+- set k high for leagues with a variety of skill levels (college sports), low for leagues with higher parity (like the nfl)
+- ranking system does not consider point differential, when the game was played, or any external factors (injuries, roster/staff changes, expectations, "eye test", etc)
+- The winner of the "championship" will not necessarily be ranked first. In general, the ranking considers all games as equally "important"
+-->

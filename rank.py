@@ -319,6 +319,10 @@ if __name__ == "__main__":
     if not os.path.exists(input_file):
         print(f"Input file not found: {input_file}")
         exit(1)
+    
+    if competitors_file and not os.path.exists(competitors_file):
+        print(f"Competitors file not found: {competitors_file}")
+        exit(1)
 
     print(f"Loading games from {input_file}...")
     with open(input_file, "r", encoding="utf-8") as f:

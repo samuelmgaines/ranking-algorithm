@@ -1,0 +1,3283 @@
+{
+  "parameters": {
+    "ALPHA": 1,
+    "K": 1.0,
+    "LAMBDA": 0.5,
+    "EPSILON": 0.001,
+    "SEED": 42,
+    "ANNEALING_ITER": 50000,
+    "COOLING_RATE": 0.99,
+    "MAX_SLIDE_PASSES": 2000,
+    "WINDOW_SEARCH_SIZE": 5
+  },
+  "info": {
+    "final_loss": 1284.9232187491616,
+    "loss_after_annealing": 1284.9232187491616,
+    "slide_improvements_made": 0,
+    "total_games": 1000,
+    "total_competitors": 10,
+    "ranked_competitors": 10
+  },
+  "ranking": [
+    {
+      "rank": 1,
+      "competitor": "Team 1",
+      "inconsistency_score": 382,
+      "SOS": 5.063301670715781e-07,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 7
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 7
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 7
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 7
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 7
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 7
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 8
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 7
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 7
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 7
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 7
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 8
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 8
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 7
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 3
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "competitor": "Team 9",
+      "inconsistency_score": 274,
+      "SOS": -0.07923730961663544,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 7",
+          "magnitude": 8
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 7
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 5",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "competitor": "Team 5",
+      "inconsistency_score": 277,
+      "SOS": -0.10106837345971448,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 7",
+          "magnitude": 7
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 5
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "competitor": "Team 6",
+      "inconsistency_score": 233,
+      "SOS": -0.08419772121555885,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 7",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 7",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 7",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 7",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "competitor": "Team 10",
+      "inconsistency_score": 302,
+      "SOS": -0.17132241317053712,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 7",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 2
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "competitor": "Team 2",
+      "inconsistency_score": 254,
+      "SOS": -0.14449122757713395,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 4
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "competitor": "Team 8",
+      "inconsistency_score": 272,
+      "SOS": -0.06186895372685636,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 7",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 4",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "competitor": "Team 4",
+      "inconsistency_score": 336,
+      "SOS": -0.09388548757066006,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 7
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 7
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 7
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 7
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 7
+        },
+        {
+          "type": "win",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 7
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 7",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 7
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 7
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 7",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 7
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 7
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 7",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 7
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 8",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 3",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 7",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 5
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "competitor": "Team 3",
+      "inconsistency_score": 163,
+      "SOS": -0.05741918555570957,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 4",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 8",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 8
+        },
+        {
+          "type": "win",
+          "opponent": "Team 4",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 4",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 7",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 4",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 7",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 7",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 7",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 4",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 7
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 8
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 4",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Team 7",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 2",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 1",
+          "magnitude": 8
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Team 8",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 4",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "competitor": "Team 7",
+      "inconsistency_score": 77,
+      "SOS": 0.0,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Team 9",
+          "magnitude": 8
+        },
+        {
+          "type": "win",
+          "opponent": "Team 10",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "Team 4",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 5",
+          "magnitude": 7
+        },
+        {
+          "type": "win",
+          "opponent": "Team 3",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 3",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 3",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 3",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 4",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 6",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Team 4",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Team 3",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Team 8",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Team 4",
+          "magnitude": 2
+        }
+      ]
+    }
+  ]
+}
