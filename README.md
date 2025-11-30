@@ -493,3 +493,5 @@ The repository also includes some game data, team data, and rankings. Files in t
 - ranking system does not consider point differential, when the game was played, or any external factors (injuries, roster/staff changes, expectations, "eye test", etc)
 - The winner of the "championship" will not necessarily be ranked first. In general, the ranking considers all games as equally "important"
 -->
+
+<!-- TODO: Why is Tennessee over Texas A&M? -->
