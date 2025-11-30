@@ -1,1831 +1,2170 @@
 {
-	"parameters": {
-		"ALPHA": 1,
-		"K": 2.5,
-		"LAMBDA": 0.67,
-		"EPSILON": 0.001,
-		"SEED": 42,
-		"ANNEALING_ITER": 2000000,
-		"COOLING_RATE": 0.998,
-		"MAX_SLIDE_PASSES": 2000,
-		"WINDOW_SEARCH_SIZE": 5
-	},
-	"info": {
-		"final_loss": 1979.991882573818,
-		"loss_after_annealing": 1981.993108416549,
-		"slide_improvements_made": 63,
-		"total_games": 1351,
-		"total_competitors": 265,
-		"ranked_competitors": 136
-	},
-	"ranking": [
-		{
-			"rank": 1,
-			"competitor": "Texas A&M",
-			"inconsistency_score": 0,
-			"SOS": 0.6699999999155578,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 2,
-			"competitor": "Indiana",
-			"inconsistency_score": 0,
-			"SOS": 0.49417630601072693,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 3,
-			"competitor": "Ohio State",
-			"inconsistency_score": 0,
-			"SOS": 0.42854298313640743,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 4,
-			"competitor": "Oregon",
-			"inconsistency_score": 0,
-			"SOS": 0.30156993471295107,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 5,
-			"competitor": "Texas Tech",
-			"inconsistency_score": 19,
-			"SOS": 0.4570773846535124,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Arizona State",
-					"magnitude": 18
-				}
-			]
-		},
-		{
-			"rank": 6,
-			"competitor": "BYU",
-			"inconsistency_score": 0,
-			"SOS": 0.46834949870853754,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 7,
-			"competitor": "Utah",
-			"inconsistency_score": 0,
-			"SOS": 0.3758692345585006,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 8,
-			"competitor": "Georgia",
-			"inconsistency_score": 5,
-			"SOS": 0.5912172810113038,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Alabama",
-					"magnitude": 4
-				}
-			]
-		},
-		{
-			"rank": 9,
-			"competitor": "Ole Miss",
-			"inconsistency_score": 0,
-			"SOS": 0.5305827566880511,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 10,
-			"competitor": "Texas",
-			"inconsistency_score": 12,
-			"SOS": 0.3883502323260622,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Florida",
-					"magnitude": 11
-				}
-			]
-		},
-		{
-			"rank": 11,
-			"competitor": "Oklahoma",
-			"inconsistency_score": 0,
-			"SOS": 0.4781023018440737,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 12,
-			"competitor": "Alabama",
-			"inconsistency_score": 34,
-			"SOS": 0.4644135257718506,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Florida State",
-					"magnitude": 28
-				},
-				{
-					"type": "win",
-					"opponent": "Georgia",
-					"magnitude": 4
-				}
-			]
-		},
-		{
-			"rank": 13,
-			"competitor": "Vanderbilt",
-			"inconsistency_score": 0,
-			"SOS": 0.419772271952049,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 14,
-			"competitor": "Missouri",
-			"inconsistency_score": 0,
-			"SOS": 0.31927019651650024,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 15,
-			"competitor": "LSU",
-			"inconsistency_score": 0,
-			"SOS": 0.29158698748794754,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 16,
-			"competitor": "South Carolina",
-			"inconsistency_score": 0,
-			"SOS": 0.14294376041550283,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 17,
-			"competitor": "Tennessee",
-			"inconsistency_score": 0,
-			"SOS": 0.30995995151777866,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 18,
-			"competitor": "Kentucky",
-			"inconsistency_score": 0,
-			"SOS": 0.2633528689823294,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 19,
-			"competitor": "Auburn",
-			"inconsistency_score": 0,
-			"SOS": 0.140181816803117,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 20,
-			"competitor": "Florida",
-			"inconsistency_score": 26,
-			"SOS": 0.07416088191632203,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "South Florida",
-					"magnitude": 8
-				},
-				{
-					"type": "loss",
-					"opponent": "Miami",
-					"magnitude": 4
-				},
-				{
-					"type": "win",
-					"opponent": "Texas",
-					"magnitude": 11
-				}
-			]
-		},
-		{
-			"rank": 21,
-			"competitor": "Mississippi State",
-			"inconsistency_score": 0,
-			"SOS": 0.15911143114433624,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 22,
-			"competitor": "Arizona State",
-			"inconsistency_score": 21,
-			"SOS": 0.26148014659729985,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Texas Tech",
-					"magnitude": 18
-				},
-				{
-					"type": "loss",
-					"opponent": "Houston",
-					"magnitude": 1
-				}
-			]
-		},
-		{
-			"rank": 23,
-			"competitor": "Houston",
-			"inconsistency_score": 30,
-			"SOS": 0.243462463663173,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Arizona State",
-					"magnitude": 1
-				},
-				{
-					"type": "loss",
-					"opponent": "West Virginia",
-					"magnitude": 27
-				}
-			]
-		},
-		{
-			"rank": 24,
-			"competitor": "Miami",
-			"inconsistency_score": 42,
-			"SOS": 0.35211777612939466,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Florida",
-					"magnitude": 4
-				},
-				{
-					"type": "loss",
-					"opponent": "Louisville",
-					"magnitude": 13
-				},
-				{
-					"type": "loss",
-					"opponent": "SMU",
-					"magnitude": 22
-				}
-			]
-		},
-		{
-			"rank": 25,
-			"competitor": "Notre Dame",
-			"inconsistency_score": 0,
-			"SOS": 0.4115845616675605,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 26,
-			"competitor": "North Texas",
-			"inconsistency_score": 3,
-			"SOS": 0.29703407283136923,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "South Florida",
-					"magnitude": 2
-				}
-			]
-		},
-		{
-			"rank": 27,
-			"competitor": "Navy",
-			"inconsistency_score": 0,
-			"SOS": 0.28619183953909577,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 28,
-			"competitor": "South Florida",
-			"inconsistency_score": 47,
-			"SOS": 0.1318274837820958,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Florida",
-					"magnitude": 8
-				},
-				{
-					"type": "win",
-					"opponent": "North Texas",
-					"magnitude": 2
-				},
-				{
-					"type": "loss",
-					"opponent": "Memphis",
-					"magnitude": 34
-				}
-			]
-		},
-		{
-			"rank": 29,
-			"competitor": "Illinois",
-			"inconsistency_score": 4,
-			"SOS": 0.2537193000333686,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Washington",
-					"magnitude": 3
-				}
-			]
-		},
-		{
-			"rank": 30,
-			"competitor": "USC",
-			"inconsistency_score": 0,
-			"SOS": 0.32598845802653725,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 31,
-			"competitor": "Michigan",
-			"inconsistency_score": 0,
-			"SOS": 0.31601499030962804,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 32,
-			"competitor": "Washington",
-			"inconsistency_score": 45,
-			"SOS": 0.18189741598119855,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Illinois",
-					"magnitude": 3
-				},
-				{
-					"type": "loss",
-					"opponent": "Wisconsin",
-					"magnitude": 40
-				}
-			]
-		},
-		{
-			"rank": 33,
-			"competitor": "Georgia Tech",
-			"inconsistency_score": 2,
-			"SOS": 0.41203122747914017,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "NC State",
-					"magnitude": 1
-				}
-			]
-		},
-		{
-			"rank": 34,
-			"competitor": "NC State",
-			"inconsistency_score": 35,
-			"SOS": 0.16781141786223383,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Duke",
-					"magnitude": 20
-				},
-				{
-					"type": "loss",
-					"opponent": "Virginia Tech",
-					"magnitude": 6
-				},
-				{
-					"type": "loss",
-					"opponent": "Pittsburgh",
-					"magnitude": 4
-				},
-				{
-					"type": "win",
-					"opponent": "Georgia Tech",
-					"magnitude": 1
-				}
-			]
-		},
-		{
-			"rank": 35,
-			"competitor": "Wake Forest",
-			"inconsistency_score": 5,
-			"SOS": 0.27649902679120103,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Florida State",
-					"magnitude": 4
-				}
-			]
-		},
-		{
-			"rank": 36,
-			"competitor": "Virginia",
-			"inconsistency_score": 0,
-			"SOS": 0.37590664038704846,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 37,
-			"competitor": "Louisville",
-			"inconsistency_score": 50,
-			"SOS": 0.21490605244048566,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Miami",
-					"magnitude": 13
-				},
-				{
-					"type": "loss",
-					"opponent": "California",
-					"magnitude": 18
-				},
-				{
-					"type": "loss",
-					"opponent": "Clemson",
-					"magnitude": 16
-				}
-			]
-		},
-		{
-			"rank": 38,
-			"competitor": "Pittsburgh",
-			"inconsistency_score": 18,
-			"SOS": 0.1928986125184899,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "West Virginia",
-					"magnitude": 12
-				},
-				{
-					"type": "win",
-					"opponent": "NC State",
-					"magnitude": 4
-				}
-			]
-		},
-		{
-			"rank": 39,
-			"competitor": "Florida State",
-			"inconsistency_score": 89,
-			"SOS": 0.061382312531814205,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Alabama",
-					"magnitude": 28
-				},
-				{
-					"type": "loss",
-					"opponent": "Stanford",
-					"magnitude": 39
-				},
-				{
-					"type": "win",
-					"opponent": "Wake Forest",
-					"magnitude": 4
-				},
-				{
-					"type": "loss",
-					"opponent": "Clemson",
-					"magnitude": 14
-				}
-			]
-		},
-		{
-			"rank": 40,
-			"competitor": "Virginia Tech",
-			"inconsistency_score": 36,
-			"SOS": 0.04553009206832415,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Old Dominion",
-					"magnitude": 28
-				},
-				{
-					"type": "win",
-					"opponent": "NC State",
-					"magnitude": 6
-				}
-			]
-		},
-		{
-			"rank": 41,
-			"competitor": "Arizona",
-			"inconsistency_score": 3,
-			"SOS": 0.2764419977463986,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Iowa State",
-					"magnitude": 2
-				}
-			]
-		},
-		{
-			"rank": 42,
-			"competitor": "Cincinnati",
-			"inconsistency_score": 16,
-			"SOS": 0.24601613940287287,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Nebraska",
-					"magnitude": 15
-				}
-			]
-		},
-		{
-			"rank": 43,
-			"competitor": "Iowa State",
-			"inconsistency_score": 12,
-			"SOS": 0.21603850527127394,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Arizona",
-					"magnitude": 2
-				},
-				{
-					"type": "loss",
-					"opponent": "Colorado",
-					"magnitude": 8
-				}
-			]
-		},
-		{
-			"rank": 44,
-			"competitor": "TCU",
-			"inconsistency_score": 4,
-			"SOS": 0.2827228237250361,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Kansas State",
-					"magnitude": 3
-				}
-			]
-		},
-		{
-			"rank": 45,
-			"competitor": "Baylor",
-			"inconsistency_score": 0,
-			"SOS": 0.17630872603332268,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 46,
-			"competitor": "SMU",
-			"inconsistency_score": 23,
-			"SOS": 0.19687988490321415,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Miami",
-					"magnitude": 22
-				}
-			]
-		},
-		{
-			"rank": 47,
-			"competitor": "Kansas State",
-			"inconsistency_score": 22,
-			"SOS": 0.1402774696296885,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Army",
-					"magnitude": 17
-				},
-				{
-					"type": "win",
-					"opponent": "TCU",
-					"magnitude": 3
-				}
-			]
-		},
-		{
-			"rank": 48,
-			"competitor": "Kansas",
-			"inconsistency_score": 0,
-			"SOS": 0.1546625443639002,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 49,
-			"competitor": "UCF",
-			"inconsistency_score": 0,
-			"SOS": 0.12911400304657555,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 50,
-			"competitor": "West Virginia",
-			"inconsistency_score": 120,
-			"SOS": 0.019605812511952717,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Ohio",
-					"magnitude": 78
-				},
-				{
-					"type": "win",
-					"opponent": "Pittsburgh",
-					"magnitude": 12
-				},
-				{
-					"type": "win",
-					"opponent": "Houston",
-					"magnitude": 27
-				}
-			]
-		},
-		{
-			"rank": 51,
-			"competitor": "Colorado",
-			"inconsistency_score": 9,
-			"SOS": 0.05721330400876303,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Iowa State",
-					"magnitude": 8
-				}
-			]
-		},
-		{
-			"rank": 52,
-			"competitor": "Iowa",
-			"inconsistency_score": 0,
-			"SOS": 0.1661838069164811,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 53,
-			"competitor": "Clemson",
-			"inconsistency_score": 41,
-			"SOS": 0.09194774899336074,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Syracuse",
-					"magnitude": 6
-				},
-				{
-					"type": "loss",
-					"opponent": "Duke",
-					"magnitude": 1
-				},
-				{
-					"type": "win",
-					"opponent": "Florida State",
-					"magnitude": 14
-				},
-				{
-					"type": "win",
-					"opponent": "Louisville",
-					"magnitude": 16
-				}
-			]
-		},
-		{
-			"rank": 54,
-			"competitor": "Duke",
-			"inconsistency_score": 53,
-			"SOS": 0.08580792223004617,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Tulane",
-					"magnitude": 6
-				},
-				{
-					"type": "win",
-					"opponent": "NC State",
-					"magnitude": 20
-				},
-				{
-					"type": "win",
-					"opponent": "Clemson",
-					"magnitude": 1
-				},
-				{
-					"type": "loss",
-					"opponent": "UConn",
-					"magnitude": 22
-				}
-			]
-		},
-		{
-			"rank": 55,
-			"competitor": "California",
-			"inconsistency_score": 45,
-			"SOS": 0.13741437603325513,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "San Diego State",
-					"magnitude": 25
-				},
-				{
-					"type": "win",
-					"opponent": "Louisville",
-					"magnitude": 18
-				}
-			]
-		},
-		{
-			"rank": 56,
-			"competitor": "Minnesota",
-			"inconsistency_score": 0,
-			"SOS": 0.17070582597128403,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 57,
-			"competitor": "Nebraska",
-			"inconsistency_score": 16,
-			"SOS": 0.16498324501543113,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Cincinnati",
-					"magnitude": 15
-				}
-			]
-		},
-		{
-			"rank": 58,
-			"competitor": "North Carolina",
-			"inconsistency_score": 0,
-			"SOS": 0.102552149948221,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 59,
-			"competitor": "Syracuse",
-			"inconsistency_score": 7,
-			"SOS": 0.04087722485405629,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Clemson",
-					"magnitude": 6
-				}
-			]
-		},
-		{
-			"rank": 60,
-			"competitor": "Tulane",
-			"inconsistency_score": 14,
-			"SOS": 0.2563773764511639,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Duke",
-					"magnitude": 6
-				},
-				{
-					"type": "loss",
-					"opponent": "UTSA",
-					"magnitude": 6
-				}
-			]
-		},
-		{
-			"rank": 61,
-			"competitor": "East Carolina",
-			"inconsistency_score": 0,
-			"SOS": 0.1936802722256428,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 62,
-			"competitor": "Memphis",
-			"inconsistency_score": 51,
-			"SOS": 0.15934517306516777,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "UAB",
-					"magnitude": 15
-				},
-				{
-					"type": "win",
-					"opponent": "South Florida",
-					"magnitude": 34
-				}
-			]
-		},
-		{
-			"rank": 63,
-			"competitor": "Arkansas",
-			"inconsistency_score": 0,
-			"SOS": 0.022693323449503137,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 64,
-			"competitor": "Army",
-			"inconsistency_score": 25,
-			"SOS": 0.12269471793554863,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Tarleton State",
-					"magnitude": 6
-				},
-				{
-					"type": "win",
-					"opponent": "Kansas State",
-					"magnitude": 17
-				}
-			]
-		},
-		{
-			"rank": 65,
-			"competitor": "Temple",
-			"inconsistency_score": 0,
-			"SOS": 0.07716598267713116,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 66,
-			"competitor": "UTSA",
-			"inconsistency_score": 58,
-			"SOS": 0.06769549190674005,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Texas State",
-					"magnitude": 50
-				},
-				{
-					"type": "win",
-					"opponent": "Tulane",
-					"magnitude": 6
-				}
-			]
-		},
-		{
-			"rank": 67,
-			"competitor": "James Madison",
-			"inconsistency_score": 0,
-			"SOS": 0.1771139608446517,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 68,
-			"competitor": "Old Dominion",
-			"inconsistency_score": 77,
-			"SOS": 0.07692662615238771,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Virginia Tech",
-					"magnitude": 28
-				},
-				{
-					"type": "loss",
-					"opponent": "Marshall",
-					"magnitude": 47
-				}
-			]
-		},
-		{
-			"rank": 69,
-			"competitor": "Northwestern",
-			"inconsistency_score": 0,
-			"SOS": 0.12092041505501105,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 70,
-			"competitor": "Rutgers",
-			"inconsistency_score": 0,
-			"SOS": 0.10562492266813764,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 71,
-			"competitor": "Wisconsin",
-			"inconsistency_score": 43,
-			"SOS": 0.020430526416908366,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Maryland",
-					"magnitude": 1
-				},
-				{
-					"type": "win",
-					"opponent": "Washington",
-					"magnitude": 40
-				}
-			]
-		},
-		{
-			"rank": 72,
-			"competitor": "Maryland",
-			"inconsistency_score": 15,
-			"SOS": 0.04147791287514081,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Wisconsin",
-					"magnitude": 1
-				},
-				{
-					"type": "loss",
-					"opponent": "UCLA",
-					"magnitude": 12
-				}
-			]
-		},
-		{
-			"rank": 73,
-			"competitor": "Florida Atlantic",
-			"inconsistency_score": 32,
-			"SOS": 0.07565848473263337,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Florida International",
-					"magnitude": 31
-				}
-			]
-		},
-		{
-			"rank": 74,
-			"competitor": "Rice",
-			"inconsistency_score": 0,
-			"SOS": 0.11301969334403807,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 75,
-			"competitor": "UConn",
-			"inconsistency_score": 56,
-			"SOS": 0.13679797558165457,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Delaware",
-					"magnitude": 32
-				},
-				{
-					"type": "win",
-					"opponent": "Duke",
-					"magnitude": 22
-				}
-			]
-		},
-		{
-			"rank": 76,
-			"competitor": "UAB",
-			"inconsistency_score": 16,
-			"SOS": 0.014808498374606151,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Memphis",
-					"magnitude": 15
-				}
-			]
-		},
-		{
-			"rank": 77,
-			"competitor": "Stanford",
-			"inconsistency_score": 42,
-			"SOS": 0.049340922286168994,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Hawai'i",
-					"magnitude": 1
-				},
-				{
-					"type": "win",
-					"opponent": "Florida State",
-					"magnitude": 39
-				}
-			]
-		},
-		{
-			"rank": 78,
-			"competitor": "Hawai'i",
-			"inconsistency_score": 22,
-			"SOS": 0.13460937277883092,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Stanford",
-					"magnitude": 1
-				},
-				{
-					"type": "loss",
-					"opponent": "Fresno State",
-					"magnitude": 2
-				},
-				{
-					"type": "loss",
-					"opponent": "San José State",
-					"magnitude": 16
-				}
-			]
-		},
-		{
-			"rank": 79,
-			"competitor": "San Diego State",
-			"inconsistency_score": 34,
-			"SOS": 0.1526922552249146,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Washington State",
-					"magnitude": 7
-				},
-				{
-					"type": "win",
-					"opponent": "California",
-					"magnitude": 25
-				}
-			]
-		},
-		{
-			"rank": 80,
-			"competitor": "Fresno State",
-			"inconsistency_score": 13,
-			"SOS": 0.10837269639755462,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Hawai'i",
-					"magnitude": 2
-				},
-				{
-					"type": "loss",
-					"opponent": "Colorado State",
-					"magnitude": 9
-				}
-			]
-		},
-		{
-			"rank": 81,
-			"competitor": "Boise State",
-			"inconsistency_score": 0,
-			"SOS": 0.14453931385482016,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 82,
-			"competitor": "New Mexico",
-			"inconsistency_score": 13,
-			"SOS": 0.16241316666908792,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "San José State",
-					"magnitude": 12
-				}
-			]
-		},
-		{
-			"rank": 83,
-			"competitor": "UNLV",
-			"inconsistency_score": 0,
-			"SOS": 0.2129162563980852,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 84,
-			"competitor": "UCLA",
-			"inconsistency_score": 13,
-			"SOS": 0.0631714653935104,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Maryland",
-					"magnitude": 12
-				}
-			]
-		},
-		{
-			"rank": 85,
-			"competitor": "Utah State",
-			"inconsistency_score": 0,
-			"SOS": 0.10281954417629219,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 86,
-			"competitor": "Washington State",
-			"inconsistency_score": 48,
-			"SOS": 0.04806049341936808,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "San Diego State",
-					"magnitude": 7
-				},
-				{
-					"type": "loss",
-					"opponent": "Oregon State",
-					"magnitude": 39
-				}
-			]
-		},
-		{
-			"rank": 87,
-			"competitor": "Air Force",
-			"inconsistency_score": 0,
-			"SOS": 0.06423539656245107,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 88,
-			"competitor": "Wyoming",
-			"inconsistency_score": 0,
-			"SOS": 0.08475503527932672,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 89,
-			"competitor": "Colorado State",
-			"inconsistency_score": 10,
-			"SOS": 0.008656912903207001,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Fresno State",
-					"magnitude": 9
-				}
-			]
-		},
-		{
-			"rank": 90,
-			"competitor": "Penn State",
-			"inconsistency_score": 0,
-			"SOS": 0.07630135762825199,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 91,
-			"competitor": "Michigan State",
-			"inconsistency_score": 0,
-			"SOS": 0.0761915869901527,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 92,
-			"competitor": "Purdue",
-			"inconsistency_score": 0,
-			"SOS": 0.04282134580421032,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 93,
-			"competitor": "Boston College",
-			"inconsistency_score": 0,
-			"SOS": 0.0010844044844169453,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 94,
-			"competitor": "San José State",
-			"inconsistency_score": 114,
-			"SOS": -0.07258527277982098,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Central Michigan",
-					"magnitude": 36
-				},
-				{
-					"type": "win",
-					"opponent": "New Mexico",
-					"magnitude": 12
-				},
-				{
-					"type": "win",
-					"opponent": "Hawai'i",
-					"magnitude": 16
-				},
-				{
-					"type": "loss",
-					"opponent": "Nevada",
-					"magnitude": 46
-				}
-			]
-		},
-		{
-			"rank": 95,
-			"competitor": "Kennesaw State",
-			"inconsistency_score": 5,
-			"SOS": 0.10232001893906822,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Jacksonville State",
-					"magnitude": 4
-				}
-			]
-		},
-		{
-			"rank": 96,
-			"competitor": "Missouri State",
-			"inconsistency_score": 3,
-			"SOS": 0.10110127344689114,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Western Kentucky",
-					"magnitude": 2
-				}
-			]
-		},
-		{
-			"rank": 97,
-			"competitor": "Florida International",
-			"inconsistency_score": 36,
-			"SOS": 0.03523463508802177,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Florida Atlantic",
-					"magnitude": 31
-				},
-				{
-					"type": "loss",
-					"opponent": "Delaware",
-					"magnitude": 3
-				}
-			]
-		},
-		{
-			"rank": 98,
-			"competitor": "Western Kentucky",
-			"inconsistency_score": 27,
-			"SOS": 0.08460962030460464,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Toledo",
-					"magnitude": 23
-				},
-				{
-					"type": "win",
-					"opponent": "Missouri State",
-					"magnitude": 2
-				}
-			]
-		},
-		{
-			"rank": 99,
-			"competitor": "Jacksonville State",
-			"inconsistency_score": 14,
-			"SOS": 0.04647556268486903,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Georgia Southern",
-					"magnitude": 4
-				},
-				{
-					"type": "loss",
-					"opponent": "Southern Miss",
-					"magnitude": 3
-				},
-				{
-					"type": "win",
-					"opponent": "Kennesaw State",
-					"magnitude": 4
-				}
-			]
-		},
-		{
-			"rank": 100,
-			"competitor": "Delaware",
-			"inconsistency_score": 66,
-			"SOS": -0.02402150006851656,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "UConn",
-					"magnitude": 32
-				},
-				{
-					"type": "win",
-					"opponent": "Florida International",
-					"magnitude": 3
-				},
-				{
-					"type": "loss",
-					"opponent": "Liberty",
-					"magnitude": 12
-				},
-				{
-					"type": "loss",
-					"opponent": "Sam Houston",
-					"magnitude": 15
-				}
-			]
-		},
-		{
-			"rank": 101,
-			"competitor": "Louisiana Tech",
-			"inconsistency_score": 0,
-			"SOS": 0.09334441724001398,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 102,
-			"competitor": "Southern Miss",
-			"inconsistency_score": 11,
-			"SOS": 0.07809511520638178,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Jacksonville State",
-					"magnitude": 3
-				},
-				{
-					"type": "loss",
-					"opponent": "Texas State",
-					"magnitude": 6
-				}
-			]
-		},
-		{
-			"rank": 103,
-			"competitor": "Georgia Southern",
-			"inconsistency_score": 8,
-			"SOS": 0.01644657585892978,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Jacksonville State",
-					"magnitude": 4
-				},
-				{
-					"type": "loss",
-					"opponent": "Arkansas State",
-					"magnitude": 2
-				}
-			]
-		},
-		{
-			"rank": 104,
-			"competitor": "Coastal Carolina",
-			"inconsistency_score": 0,
-			"SOS": 0.08452282110806324,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 105,
-			"competitor": "Arkansas State",
-			"inconsistency_score": 10,
-			"SOS": 0.03868037559785599,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "UL Monroe",
-					"magnitude": 6
-				},
-				{
-					"type": "win",
-					"opponent": "Georgia Southern",
-					"magnitude": 2
-				}
-			]
-		},
-		{
-			"rank": 106,
-			"competitor": "Troy",
-			"inconsistency_score": 0,
-			"SOS": 0.109057957489268,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 107,
-			"competitor": "Marshall",
-			"inconsistency_score": 51,
-			"SOS": 0.01630977842159211,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Louisiana",
-					"magnitude": 2
-				},
-				{
-					"type": "win",
-					"opponent": "Old Dominion",
-					"magnitude": 47
-				}
-			]
-		},
-		{
-			"rank": 108,
-			"competitor": "Texas State",
-			"inconsistency_score": 60,
-			"SOS": -0.0027267043634198913,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "UTSA",
-					"magnitude": 50
-				},
-				{
-					"type": "loss",
-					"opponent": "Louisiana",
-					"magnitude": 1
-				},
-				{
-					"type": "win",
-					"opponent": "Southern Miss",
-					"magnitude": 6
-				}
-			]
-		},
-		{
-			"rank": 109,
-			"competitor": "Louisiana",
-			"inconsistency_score": 22,
-			"SOS": -0.010611481584010301,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Eastern Michigan",
-					"magnitude": 16
-				},
-				{
-					"type": "win",
-					"opponent": "Marshall",
-					"magnitude": 2
-				},
-				{
-					"type": "win",
-					"opponent": "Texas State",
-					"magnitude": 1
-				}
-			]
-		},
-		{
-			"rank": 110,
-			"competitor": "South Alabama",
-			"inconsistency_score": 0,
-			"SOS": 0.02034433363626725,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 111,
-			"competitor": "UL Monroe",
-			"inconsistency_score": 7,
-			"SOS": 0.019237898076696278,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Arkansas State",
-					"magnitude": 6
-				}
-			]
-		},
-		{
-			"rank": 112,
-			"competitor": "Liberty",
-			"inconsistency_score": 28,
-			"SOS": 0.0010287348003853863,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Bowling Green",
-					"magnitude": 14
-				},
-				{
-					"type": "win",
-					"opponent": "Delaware",
-					"magnitude": 12
-				}
-			]
-		},
-		{
-			"rank": 113,
-			"competitor": "New Mexico State",
-			"inconsistency_score": 0,
-			"SOS": 0.03749328861946602,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 114,
-			"competitor": "UTEP",
-			"inconsistency_score": 0,
-			"SOS": 0.02300461563134105,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 115,
-			"competitor": "Sam Houston",
-			"inconsistency_score": 16,
-			"SOS": 0.017881091885888756,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Delaware",
-					"magnitude": 15
-				}
-			]
-		},
-		{
-			"rank": 116,
-			"competitor": "Tulsa",
-			"inconsistency_score": 0,
-			"SOS": 0.03788727254507701,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 117,
-			"competitor": "App State",
-			"inconsistency_score": 0,
-			"SOS": 0.035228901277537826,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 118,
-			"competitor": "Oregon State",
-			"inconsistency_score": 40,
-			"SOS": 0.002988267369308312,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Washington State",
-					"magnitude": 39
-				}
-			]
-		},
-		{
-			"rank": 119,
-			"competitor": "Western Michigan",
-			"inconsistency_score": 4,
-			"SOS": 0.0348454914357487,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Miami (OH)",
-					"magnitude": 3
-				}
-			]
-		},
-		{
-			"rank": 120,
-			"competitor": "Ohio",
-			"inconsistency_score": 87,
-			"SOS": 0.026026604188662185,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "West Virginia",
-					"magnitude": 78
-				},
-				{
-					"type": "loss",
-					"opponent": "Ball State",
-					"magnitude": 7
-				}
-			]
-		},
-		{
-			"rank": 121,
-			"competitor": "Toledo",
-			"inconsistency_score": 30,
-			"SOS": 0.020983112493531075,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Western Kentucky",
-					"magnitude": 23
-				},
-				{
-					"type": "loss",
-					"opponent": "Bowling Green",
-					"magnitude": 5
-				}
-			]
-		},
-		{
-			"rank": 122,
-			"competitor": "Miami (OH)",
-			"inconsistency_score": 4,
-			"SOS": 0.04799358670352832,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Western Michigan",
-					"magnitude": 3
-				}
-			]
-		},
-		{
-			"rank": 123,
-			"competitor": "Central Michigan",
-			"inconsistency_score": 44,
-			"SOS": 0.0067024470167229705,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "San José State",
-					"magnitude": 36
-				},
-				{
-					"type": "loss",
-					"opponent": "Akron",
-					"magnitude": 6
-				}
-			]
-		},
-		{
-			"rank": 124,
-			"competitor": "Buffalo",
-			"inconsistency_score": 6,
-			"SOS": 0.0046420649790232665,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Akron",
-					"magnitude": 5
-				}
-			]
-		},
-		{
-			"rank": 125,
-			"competitor": "Eastern Michigan",
-			"inconsistency_score": 110,
-			"SOS": -0.09279530124484711,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Long Island University",
-					"magnitude": 92
-				},
-				{
-					"type": "win",
-					"opponent": "Louisiana",
-					"magnitude": 16
-				}
-			]
-		},
-		{
-			"rank": 126,
-			"competitor": "Bowling Green",
-			"inconsistency_score": 24,
-			"SOS": -0.037431182117249176,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Liberty",
-					"magnitude": 14
-				},
-				{
-					"type": "win",
-					"opponent": "Toledo",
-					"magnitude": 5
-				},
-				{
-					"type": "loss",
-					"opponent": "Kent State",
-					"magnitude": 2
-				}
-			]
-		},
-		{
-			"rank": 127,
-			"competitor": "Ball State",
-			"inconsistency_score": 12,
-			"SOS": -0.0068667171054408935,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Ohio",
-					"magnitude": 7
-				},
-				{
-					"type": "loss",
-					"opponent": "Northern Illinois",
-					"magnitude": 3
-				}
-			]
-		},
-		{
-			"rank": 128,
-			"competitor": "Kent State",
-			"inconsistency_score": 3,
-			"SOS": 0.015450235247992281,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Bowling Green",
-					"magnitude": 2
-				}
-			]
-		},
-		{
-			"rank": 129,
-			"competitor": "Akron",
-			"inconsistency_score": 13,
-			"SOS": 0.0008287893333527746,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Central Michigan",
-					"magnitude": 6
-				},
-				{
-					"type": "win",
-					"opponent": "Buffalo",
-					"magnitude": 5
-				}
-			]
-		},
-		{
-			"rank": 130,
-			"competitor": "Northern Illinois",
-			"inconsistency_score": 4,
-			"SOS": 0.0014459232702641615,
-			"inconsistent_games": [
-				{
-					"type": "win",
-					"opponent": "Ball State",
-					"magnitude": 3
-				}
-			]
-		},
-		{
-			"rank": 131,
-			"competitor": "Charlotte",
-			"inconsistency_score": 0,
-			"SOS": 0.006134318115842591,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 132,
-			"competitor": "Nevada",
-			"inconsistency_score": 49,
-			"SOS": -0.03554344696204251,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Middle Tennessee",
-					"magnitude": 1
-				},
-				{
-					"type": "win",
-					"opponent": "San José State",
-					"magnitude": 46
-				}
-			]
-		},
-		{
-			"rank": 133,
-			"competitor": "Middle Tennessee",
-			"inconsistency_score": 9,
-			"SOS": -0.04957596648320049,
-			"inconsistent_games": [
-				{
-					"type": "loss",
-					"opponent": "Austin Peay",
-					"magnitude": 6
-				},
-				{
-					"type": "win",
-					"opponent": "Nevada",
-					"magnitude": 1
-				}
-			]
-		},
-		{
-			"rank": 134,
-			"competitor": "Oklahoma State",
-			"inconsistency_score": 0,
-			"SOS": 0.004113512033823784,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 135,
-			"competitor": "Georgia State",
-			"inconsistency_score": 0,
-			"SOS": 1.5285673579962257e-5,
-			"inconsistent_games": []
-		},
-		{
-			"rank": 136,
-			"competitor": "Massachusetts",
-			"inconsistency_score": 0,
-			"SOS": 0.0,
-			"inconsistent_games": []
-		}
-	]
+  "parameters": {
+    "ALPHA": 1,
+    "K": 2.5,
+    "LAMBDA": 0.67,
+    "EPSILON": 0.001,
+    "SEED": 42,
+    "ANNEALING_ITER": 2500000,
+    "COOLING_RATE": 0.999,
+    "MAX_SLIDE_PASSES": 2000,
+    "WINDOW_SEARCH_SIZE": 6
+  },
+  "info": {
+    "final_loss": 2740.9877188885634,
+    "loss_after_annealing": 2740.988966520715,
+    "slide_improvements_made": 42,
+    "total_games": 1552,
+    "total_competitors": 265,
+    "ranked_competitors": 136
+  },
+  "ranking": [
+    {
+      "rank": 1,
+      "competitor": "Ohio State",
+      "inconsistency_score": 0,
+      "SOS": 0.5858040020035062,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 2,
+      "competitor": "Indiana",
+      "inconsistency_score": 0,
+      "SOS": 0.5460218000349116,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 3,
+      "competitor": "Oregon",
+      "inconsistency_score": 0,
+      "SOS": 0.4845444295012682,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 4,
+      "competitor": "Georgia",
+      "inconsistency_score": 5,
+      "SOS": 0.669961387478933,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Alabama",
+          "magnitude": 4
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "competitor": "Ole Miss",
+      "inconsistency_score": 0,
+      "SOS": 0.5728845668024688,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 6,
+      "competitor": "Texas",
+      "inconsistency_score": 19,
+      "SOS": 0.5020494142455637,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Florida",
+          "magnitude": 18
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "competitor": "Oklahoma",
+      "inconsistency_score": 0,
+      "SOS": 0.6173971736032096,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 8,
+      "competitor": "Alabama",
+      "inconsistency_score": 36,
+      "SOS": 0.5465274709847445,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Florida State",
+          "magnitude": 30
+        },
+        {
+          "type": "win",
+          "opponent": "Georgia",
+          "magnitude": 4
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "competitor": "Vanderbilt",
+      "inconsistency_score": 0,
+      "SOS": 0.5491988875547135,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 10,
+      "competitor": "Tennessee",
+      "inconsistency_score": 0,
+      "SOS": 0.35268174420256587,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 11,
+      "competitor": "Texas A&M",
+      "inconsistency_score": 0,
+      "SOS": 0.6362048160690857,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 12,
+      "competitor": "Missouri",
+      "inconsistency_score": 0,
+      "SOS": 0.32572621596185447,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 13,
+      "competitor": "LSU",
+      "inconsistency_score": 0,
+      "SOS": 0.30945319838418933,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 14,
+      "competitor": "Texas Tech",
+      "inconsistency_score": 28,
+      "SOS": 0.4763111150691147,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Arizona State",
+          "magnitude": 27
+        }
+      ]
+    },
+    {
+      "rank": 15,
+      "competitor": "BYU",
+      "inconsistency_score": 0,
+      "SOS": 0.5815715325072646,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 16,
+      "competitor": "Utah",
+      "inconsistency_score": 0,
+      "SOS": 0.4856746612345018,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 17,
+      "competitor": "Notre Dame",
+      "inconsistency_score": 6,
+      "SOS": 0.5257309629991993,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Miami",
+          "magnitude": 5
+        }
+      ]
+    },
+    {
+      "rank": 18,
+      "competitor": "North Texas",
+      "inconsistency_score": 6,
+      "SOS": 0.37692900771318816,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "South Florida",
+          "magnitude": 5
+        }
+      ]
+    },
+    {
+      "rank": 19,
+      "competitor": "Navy",
+      "inconsistency_score": 0,
+      "SOS": 0.3362511098357651,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 20,
+      "competitor": "USC",
+      "inconsistency_score": 8,
+      "SOS": 0.39613271698528724,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Illinois",
+          "magnitude": 7
+        }
+      ]
+    },
+    {
+      "rank": 21,
+      "competitor": "Michigan",
+      "inconsistency_score": 0,
+      "SOS": 0.3861822271648583,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 22,
+      "competitor": "Miami",
+      "inconsistency_score": 36,
+      "SOS": 0.4887764700644466,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Notre Dame",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Louisville",
+          "magnitude": 10
+        },
+        {
+          "type": "loss",
+          "opponent": "SMU",
+          "magnitude": 18
+        }
+      ]
+    },
+    {
+      "rank": 23,
+      "competitor": "South Florida",
+      "inconsistency_score": 57,
+      "SOS": 0.27983634968460414,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "North Texas",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Memphis",
+          "magnitude": 50
+        }
+      ]
+    },
+    {
+      "rank": 24,
+      "competitor": "Florida",
+      "inconsistency_score": 25,
+      "SOS": 0.1366305298674752,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Texas",
+          "magnitude": 18
+        },
+        {
+          "type": "loss",
+          "opponent": "Kentucky",
+          "magnitude": 5
+        }
+      ]
+    },
+    {
+      "rank": 25,
+      "competitor": "Mississippi State",
+      "inconsistency_score": 0,
+      "SOS": 0.1283317046863688,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 26,
+      "competitor": "Washington",
+      "inconsistency_score": 34,
+      "SOS": 0.31495295507605625,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Wisconsin",
+          "magnitude": 33
+        }
+      ]
+    },
+    {
+      "rank": 27,
+      "competitor": "Illinois",
+      "inconsistency_score": 41,
+      "SOS": 0.2438303305906218,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "USC",
+          "magnitude": 7
+        },
+        {
+          "type": "loss",
+          "opponent": "Wisconsin",
+          "magnitude": 32
+        }
+      ]
+    },
+    {
+      "rank": 28,
+      "competitor": "South Carolina",
+      "inconsistency_score": 10,
+      "SOS": 0.14651511999279868,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Clemson",
+          "magnitude": 9
+        }
+      ]
+    },
+    {
+      "rank": 29,
+      "competitor": "Kentucky",
+      "inconsistency_score": 10,
+      "SOS": 0.09548842230425571,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Florida",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Louisville",
+          "magnitude": 3
+        }
+      ]
+    },
+    {
+      "rank": 30,
+      "competitor": "Auburn",
+      "inconsistency_score": 0,
+      "SOS": 0.12884733726045647,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 31,
+      "competitor": "Virginia",
+      "inconsistency_score": 13,
+      "SOS": 0.46104625431948637,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "NC State",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Wake Forest",
+          "magnitude": 8
+        }
+      ]
+    },
+    {
+      "rank": 32,
+      "competitor": "Louisville",
+      "inconsistency_score": 53,
+      "SOS": 0.2265245333602367,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Miami",
+          "magnitude": 10
+        },
+        {
+          "type": "loss",
+          "opponent": "California",
+          "magnitude": 22
+        },
+        {
+          "type": "loss",
+          "opponent": "Clemson",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "SMU",
+          "magnitude": 8
+        },
+        {
+          "type": "win",
+          "opponent": "Kentucky",
+          "magnitude": 3
+        }
+      ]
+    },
+    {
+      "rank": 33,
+      "competitor": "Pittsburgh",
+      "inconsistency_score": 19,
+      "SOS": 0.34094853089092647,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "West Virginia",
+          "magnitude": 18
+        }
+      ]
+    },
+    {
+      "rank": 34,
+      "competitor": "NC State",
+      "inconsistency_score": 27,
+      "SOS": 0.2800958166631968,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Virginia",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Duke",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Virginia Tech",
+          "magnitude": 19
+        }
+      ]
+    },
+    {
+      "rank": 35,
+      "competitor": "Georgia Tech",
+      "inconsistency_score": 0,
+      "SOS": 0.4281506359986694,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 36,
+      "competitor": "Duke",
+      "inconsistency_score": 61,
+      "SOS": 0.26443812681133116,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Tulane",
+          "magnitude": 21
+        },
+        {
+          "type": "win",
+          "opponent": "NC State",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "UConn",
+          "magnitude": 35
+        }
+      ]
+    },
+    {
+      "rank": 37,
+      "competitor": "Clemson",
+      "inconsistency_score": 53,
+      "SOS": 0.17707842993376746,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Syracuse",
+          "magnitude": 32
+        },
+        {
+          "type": "loss",
+          "opponent": "SMU",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Louisville",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "South Carolina",
+          "magnitude": 9
+        }
+      ]
+    },
+    {
+      "rank": 38,
+      "competitor": "Florida State",
+      "inconsistency_score": 50,
+      "SOS": 0.12079748088096535,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Alabama",
+          "magnitude": 30
+        },
+        {
+          "type": "loss",
+          "opponent": "Stanford",
+          "magnitude": 18
+        }
+      ]
+    },
+    {
+      "rank": 39,
+      "competitor": "Wake Forest",
+      "inconsistency_score": 9,
+      "SOS": 0.24489140408831572,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Virginia",
+          "magnitude": 8
+        }
+      ]
+    },
+    {
+      "rank": 40,
+      "competitor": "SMU",
+      "inconsistency_score": 56,
+      "SOS": 0.15751836026842078,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Baylor",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "TCU",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Clemson",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Miami",
+          "magnitude": 18
+        },
+        {
+          "type": "win",
+          "opponent": "Louisville",
+          "magnitude": 8
+        },
+        {
+          "type": "loss",
+          "opponent": "California",
+          "magnitude": 14
+        }
+      ]
+    },
+    {
+      "rank": 41,
+      "competitor": "Arizona State",
+      "inconsistency_score": 35,
+      "SOS": 0.31899473603777534,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Texas Tech",
+          "magnitude": 27
+        },
+        {
+          "type": "loss",
+          "opponent": "Houston",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Arizona",
+          "magnitude": 3
+        }
+      ]
+    },
+    {
+      "rank": 42,
+      "competitor": "TCU",
+      "inconsistency_score": 16,
+      "SOS": 0.34968583424186966,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "SMU",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Kansas State",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Iowa State",
+          "magnitude": 5
+        }
+      ]
+    },
+    {
+      "rank": 43,
+      "competitor": "Houston",
+      "inconsistency_score": 12,
+      "SOS": 0.30912503677030095,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Arizona State",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "West Virginia",
+          "magnitude": 8
+        }
+      ]
+    },
+    {
+      "rank": 44,
+      "competitor": "Arizona",
+      "inconsistency_score": 8,
+      "SOS": 0.33515063228422687,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Iowa State",
+          "magnitude": 3
+        },
+        {
+          "type": "win",
+          "opponent": "Arizona State",
+          "magnitude": 3
+        }
+      ]
+    },
+    {
+      "rank": 45,
+      "competitor": "Baylor",
+      "inconsistency_score": 8,
+      "SOS": 0.11683279050848804,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "SMU",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Cincinnati",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 46,
+      "competitor": "Cincinnati",
+      "inconsistency_score": 18,
+      "SOS": 0.17953455685746977,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Nebraska",
+          "magnitude": 15
+        },
+        {
+          "type": "win",
+          "opponent": "Baylor",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 47,
+      "competitor": "Iowa State",
+      "inconsistency_score": 16,
+      "SOS": 0.2097232847975974,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Arizona",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Colorado",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "TCU",
+          "magnitude": 5
+        }
+      ]
+    },
+    {
+      "rank": 48,
+      "competitor": "Kansas State",
+      "inconsistency_score": 34,
+      "SOS": 0.18189753077463724,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Army",
+          "magnitude": 26
+        },
+        {
+          "type": "win",
+          "opponent": "TCU",
+          "magnitude": 6
+        }
+      ]
+    },
+    {
+      "rank": 49,
+      "competitor": "Kansas",
+      "inconsistency_score": 0,
+      "SOS": 0.15318433680705015,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 50,
+      "competitor": "UCF",
+      "inconsistency_score": 0,
+      "SOS": 0.14260999281892134,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 51,
+      "competitor": "West Virginia",
+      "inconsistency_score": 132,
+      "SOS": 0.007604198739736626,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Ohio",
+          "magnitude": 103
+        },
+        {
+          "type": "win",
+          "opponent": "Pittsburgh",
+          "magnitude": 18
+        },
+        {
+          "type": "win",
+          "opponent": "Houston",
+          "magnitude": 8
+        }
+      ]
+    },
+    {
+      "rank": 52,
+      "competitor": "Colorado",
+      "inconsistency_score": 6,
+      "SOS": 0.058215222313647556,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Iowa State",
+          "magnitude": 5
+        }
+      ]
+    },
+    {
+      "rank": 53,
+      "competitor": "Virginia Tech",
+      "inconsistency_score": 56,
+      "SOS": 0.041528385288377476,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Old Dominion",
+          "magnitude": 35
+        },
+        {
+          "type": "win",
+          "opponent": "NC State",
+          "magnitude": 19
+        }
+      ]
+    },
+    {
+      "rank": 54,
+      "competitor": "California",
+      "inconsistency_score": 72,
+      "SOS": 0.1499457905195257,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "San Diego State",
+          "magnitude": 30
+        },
+        {
+          "type": "win",
+          "opponent": "Louisville",
+          "magnitude": 22
+        },
+        {
+          "type": "loss",
+          "opponent": "Stanford",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "SMU",
+          "magnitude": 14
+        }
+      ]
+    },
+    {
+      "rank": 55,
+      "competitor": "North Carolina",
+      "inconsistency_score": 0,
+      "SOS": 0.11891191459456346,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 56,
+      "competitor": "Stanford",
+      "inconsistency_score": 52,
+      "SOS": 0.06246062207557215,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Hawai'i",
+          "magnitude": 29
+        },
+        {
+          "type": "win",
+          "opponent": "Florida State",
+          "magnitude": 18
+        },
+        {
+          "type": "win",
+          "opponent": "California",
+          "magnitude": 2
+        }
+      ]
+    },
+    {
+      "rank": 57,
+      "competitor": "Tulane",
+      "inconsistency_score": 42,
+      "SOS": 0.31760742411801396,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Duke",
+          "magnitude": 21
+        },
+        {
+          "type": "loss",
+          "opponent": "UTSA",
+          "magnitude": 19
+        }
+      ]
+    },
+    {
+      "rank": 58,
+      "competitor": "Iowa",
+      "inconsistency_score": 0,
+      "SOS": 0.28455609331208687,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 59,
+      "competitor": "Wisconsin",
+      "inconsistency_score": 79,
+      "SOS": 0.020848361985348528,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Maryland",
+          "magnitude": 9
+        },
+        {
+          "type": "win",
+          "opponent": "Washington",
+          "magnitude": 33
+        },
+        {
+          "type": "win",
+          "opponent": "Illinois",
+          "magnitude": 32
+        },
+        {
+          "type": "loss",
+          "opponent": "Minnesota",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 60,
+      "competitor": "Minnesota",
+      "inconsistency_score": 5,
+      "SOS": 0.17642774521244242,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Northwestern",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Wisconsin",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 61,
+      "competitor": "Nebraska",
+      "inconsistency_score": 20,
+      "SOS": 0.18613019248350998,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Cincinnati",
+          "magnitude": 15
+        },
+        {
+          "type": "loss",
+          "opponent": "Penn State",
+          "magnitude": 3
+        }
+      ]
+    },
+    {
+      "rank": 62,
+      "competitor": "Northwestern",
+      "inconsistency_score": 3,
+      "SOS": 0.14932491229629583,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Minnesota",
+          "magnitude": 2
+        }
+      ]
+    },
+    {
+      "rank": 63,
+      "competitor": "James Madison",
+      "inconsistency_score": 0,
+      "SOS": 0.24757395064294926,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 64,
+      "competitor": "Penn State",
+      "inconsistency_score": 7,
+      "SOS": 0.1505788539428484,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "UCLA",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Nebraska",
+          "magnitude": 3
+        }
+      ]
+    },
+    {
+      "rank": 65,
+      "competitor": "Rutgers",
+      "inconsistency_score": 0,
+      "SOS": 0.09739637968132597,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 66,
+      "competitor": "UCLA",
+      "inconsistency_score": 36,
+      "SOS": 0.06949039994970269,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "UNLV",
+          "magnitude": 16
+        },
+        {
+          "type": "loss",
+          "opponent": "New Mexico",
+          "magnitude": 15
+        },
+        {
+          "type": "win",
+          "opponent": "Penn State",
+          "magnitude": 2
+        }
+      ]
+    },
+    {
+      "rank": 67,
+      "competitor": "Michigan State",
+      "inconsistency_score": 0,
+      "SOS": 0.11515145958909039,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 68,
+      "competitor": "Maryland",
+      "inconsistency_score": 10,
+      "SOS": 0.04761498313726096,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Wisconsin",
+          "magnitude": 9
+        }
+      ]
+    },
+    {
+      "rank": 69,
+      "competitor": "Syracuse",
+      "inconsistency_score": 35,
+      "SOS": 0.04010076544019524,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Clemson",
+          "magnitude": 32
+        },
+        {
+          "type": "loss",
+          "opponent": "Boston College",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 70,
+      "competitor": "Boston College",
+      "inconsistency_score": 4,
+      "SOS": -0.004906636529881922,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "UConn",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Syracuse",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 71,
+      "competitor": "UConn",
+      "inconsistency_score": 77,
+      "SOS": 0.13310289953307541,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Delaware",
+          "magnitude": 31
+        },
+        {
+          "type": "win",
+          "opponent": "Boston College",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Rice",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Duke",
+          "magnitude": 35
+        }
+      ]
+    },
+    {
+      "rank": 72,
+      "competitor": "East Carolina",
+      "inconsistency_score": 5,
+      "SOS": 0.22896081846455493,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "UTSA",
+          "magnitude": 4
+        }
+      ]
+    },
+    {
+      "rank": 73,
+      "competitor": "Memphis",
+      "inconsistency_score": 58,
+      "SOS": 0.16127632689285096,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "UAB",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "South Florida",
+          "magnitude": 50
+        }
+      ]
+    },
+    {
+      "rank": 74,
+      "competitor": "Army",
+      "inconsistency_score": 54,
+      "SOS": 0.14763723844173732,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Tarleton State",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Kansas State",
+          "magnitude": 26
+        },
+        {
+          "type": "loss",
+          "opponent": "Tulsa",
+          "magnitude": 19
+        }
+      ]
+    },
+    {
+      "rank": 75,
+      "competitor": "Temple",
+      "inconsistency_score": 0,
+      "SOS": 0.09138653902324417,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 76,
+      "competitor": "UTSA",
+      "inconsistency_score": 60,
+      "SOS": 0.08283854680441108,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Texas State",
+          "magnitude": 34
+        },
+        {
+          "type": "win",
+          "opponent": "Tulane",
+          "magnitude": 19
+        },
+        {
+          "type": "win",
+          "opponent": "East Carolina",
+          "magnitude": 4
+        }
+      ]
+    },
+    {
+      "rank": 77,
+      "competitor": "Rice",
+      "inconsistency_score": 9,
+      "SOS": 0.07432603556793704,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Florida Atlantic",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "UConn",
+          "magnitude": 6
+        }
+      ]
+    },
+    {
+      "rank": 78,
+      "competitor": "Florida Atlantic",
+      "inconsistency_score": 24,
+      "SOS": 0.05408742371216001,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Florida International",
+          "magnitude": 21
+        },
+        {
+          "type": "win",
+          "opponent": "Rice",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 79,
+      "competitor": "UAB",
+      "inconsistency_score": 7,
+      "SOS": 0.040719384454848434,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Memphis",
+          "magnitude": 6
+        }
+      ]
+    },
+    {
+      "rank": 80,
+      "competitor": "New Mexico",
+      "inconsistency_score": 35,
+      "SOS": 0.21173005121336658,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "UCLA",
+          "magnitude": 15
+        },
+        {
+          "type": "loss",
+          "opponent": "San José State",
+          "magnitude": 15
+        },
+        {
+          "type": "loss",
+          "opponent": "Boise State",
+          "magnitude": 2
+        }
+      ]
+    },
+    {
+      "rank": 81,
+      "competitor": "UNLV",
+      "inconsistency_score": 19,
+      "SOS": 0.2291327998350929,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "UCLA",
+          "magnitude": 16
+        },
+        {
+          "type": "loss",
+          "opponent": "Boise State",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 82,
+      "competitor": "Boise State",
+      "inconsistency_score": 12,
+      "SOS": 0.14050489837003807,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "New Mexico",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "UNLV",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Fresno State",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "San Diego State",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 83,
+      "competitor": "San Diego State",
+      "inconsistency_score": 41,
+      "SOS": 0.14342408865749665,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Washington State",
+          "magnitude": 5
+        },
+        {
+          "type": "win",
+          "opponent": "California",
+          "magnitude": 30
+        },
+        {
+          "type": "loss",
+          "opponent": "Hawai'i",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Boise State",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 84,
+      "competitor": "Hawai'i",
+      "inconsistency_score": 47,
+      "SOS": 0.13393557280859836,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Stanford",
+          "magnitude": 29
+        },
+        {
+          "type": "loss",
+          "opponent": "Fresno State",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "San José State",
+          "magnitude": 11
+        },
+        {
+          "type": "win",
+          "opponent": "San Diego State",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 85,
+      "competitor": "Utah State",
+      "inconsistency_score": 0,
+      "SOS": 0.16007076050195831,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 86,
+      "competitor": "Fresno State",
+      "inconsistency_score": 16,
+      "SOS": 0.12238224586033196,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Hawai'i",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "Colorado State",
+          "magnitude": 7
+        },
+        {
+          "type": "win",
+          "opponent": "Boise State",
+          "magnitude": 4
+        }
+      ]
+    },
+    {
+      "rank": 87,
+      "competitor": "Old Dominion",
+      "inconsistency_score": 61,
+      "SOS": 0.12264299379584978,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Virginia Tech",
+          "magnitude": 35
+        },
+        {
+          "type": "loss",
+          "opponent": "Marshall",
+          "magnitude": 24
+        }
+      ]
+    },
+    {
+      "rank": 88,
+      "competitor": "Washington State",
+      "inconsistency_score": 39,
+      "SOS": 0.07395446452441547,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "San Diego State",
+          "magnitude": 5
+        },
+        {
+          "type": "loss",
+          "opponent": "Oregon State",
+          "magnitude": 32
+        }
+      ]
+    },
+    {
+      "rank": 89,
+      "competitor": "Arkansas",
+      "inconsistency_score": 0,
+      "SOS": 0.025170418342979523,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 90,
+      "competitor": "Purdue",
+      "inconsistency_score": 0,
+      "SOS": 0.025771065613649252,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 91,
+      "competitor": "Air Force",
+      "inconsistency_score": 0,
+      "SOS": 0.09561414766731315,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 92,
+      "competitor": "Tulsa",
+      "inconsistency_score": 46,
+      "SOS": 0.022269733102456456,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "New Mexico State",
+          "magnitude": 25
+        },
+        {
+          "type": "win",
+          "opponent": "Army",
+          "magnitude": 19
+        }
+      ]
+    },
+    {
+      "rank": 93,
+      "competitor": "Colorado State",
+      "inconsistency_score": 10,
+      "SOS": -0.002817547951050393,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Fresno State",
+          "magnitude": 7
+        },
+        {
+          "type": "loss",
+          "opponent": "Wyoming",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 94,
+      "competitor": "Wyoming",
+      "inconsistency_score": 5,
+      "SOS": 0.03120014909373934,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Colorado State",
+          "magnitude": 1
+        },
+        {
+          "type": "loss",
+          "opponent": "Nevada",
+          "magnitude": 2
+        }
+      ]
+    },
+    {
+      "rank": 95,
+      "competitor": "San José State",
+      "inconsistency_score": 92,
+      "SOS": -0.05368691537877325,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Central Michigan",
+          "magnitude": 61
+        },
+        {
+          "type": "win",
+          "opponent": "New Mexico",
+          "magnitude": 15
+        },
+        {
+          "type": "win",
+          "opponent": "Hawai'i",
+          "magnitude": 11
+        },
+        {
+          "type": "loss",
+          "opponent": "Nevada",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 96,
+      "competitor": "Nevada",
+      "inconsistency_score": 31,
+      "SOS": -0.02843285545862144,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Middle Tennessee",
+          "magnitude": 20
+        },
+        {
+          "type": "loss",
+          "opponent": "Western Kentucky",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "San José State",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Wyoming",
+          "magnitude": 2
+        }
+      ]
+    },
+    {
+      "rank": 97,
+      "competitor": "Kennesaw State",
+      "inconsistency_score": 3,
+      "SOS": 0.1794338550066958,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Jacksonville State",
+          "magnitude": 2
+        }
+      ]
+    },
+    {
+      "rank": 98,
+      "competitor": "Florida International",
+      "inconsistency_score": 32,
+      "SOS": 0.0857714884482792,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Florida Atlantic",
+          "magnitude": 21
+        },
+        {
+          "type": "loss",
+          "opponent": "Delaware",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Missouri State",
+          "magnitude": 5
+        }
+      ]
+    },
+    {
+      "rank": 99,
+      "competitor": "Jacksonville State",
+      "inconsistency_score": 18,
+      "SOS": 0.10319815516645436,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Georgia Southern",
+          "magnitude": 7
+        },
+        {
+          "type": "loss",
+          "opponent": "Southern Miss",
+          "magnitude": 6
+        },
+        {
+          "type": "win",
+          "opponent": "Kennesaw State",
+          "magnitude": 2
+        }
+      ]
+    },
+    {
+      "rank": 100,
+      "competitor": "Western Kentucky",
+      "inconsistency_score": 60,
+      "SOS": 0.09727838729368503,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Toledo",
+          "magnitude": 54
+        },
+        {
+          "type": "win",
+          "opponent": "Nevada",
+          "magnitude": 4
+        }
+      ]
+    },
+    {
+      "rank": 101,
+      "competitor": "Delaware",
+      "inconsistency_score": 70,
+      "SOS": 0.021080378997789237,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "UConn",
+          "magnitude": 31
+        },
+        {
+          "type": "win",
+          "opponent": "Florida International",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Liberty",
+          "magnitude": 14
+        },
+        {
+          "type": "loss",
+          "opponent": "Sam Houston",
+          "magnitude": 18
+        }
+      ]
+    },
+    {
+      "rank": 102,
+      "competitor": "Louisiana Tech",
+      "inconsistency_score": 0,
+      "SOS": 0.15143917356247388,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 103,
+      "competitor": "Missouri State",
+      "inconsistency_score": 6,
+      "SOS": 0.11258251585950013,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Florida International",
+          "magnitude": 5
+        }
+      ]
+    },
+    {
+      "rank": 104,
+      "competitor": "Troy",
+      "inconsistency_score": 4,
+      "SOS": 0.12392808209040129,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Arkansas State",
+          "magnitude": 3
+        }
+      ]
+    },
+    {
+      "rank": 105,
+      "competitor": "Southern Miss",
+      "inconsistency_score": 21,
+      "SOS": 0.077967311875708,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Jacksonville State",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Texas State",
+          "magnitude": 4
+        },
+        {
+          "type": "loss",
+          "opponent": "South Alabama",
+          "magnitude": 8
+        }
+      ]
+    },
+    {
+      "rank": 106,
+      "competitor": "Georgia Southern",
+      "inconsistency_score": 10,
+      "SOS": 0.0536949991519895,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Jacksonville State",
+          "magnitude": 7
+        },
+        {
+          "type": "loss",
+          "opponent": "Arkansas State",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 107,
+      "competitor": "Arkansas State",
+      "inconsistency_score": 16,
+      "SOS": 0.029728175397876547,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "UL Monroe",
+          "magnitude": 7
+        },
+        {
+          "type": "win",
+          "opponent": "Georgia Southern",
+          "magnitude": 1
+        },
+        {
+          "type": "win",
+          "opponent": "Troy",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Louisiana",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 108,
+      "competitor": "Louisiana",
+      "inconsistency_score": 53,
+      "SOS": 0.05441623109113823,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Eastern Michigan",
+          "magnitude": 50
+        },
+        {
+          "type": "win",
+          "opponent": "Arkansas State",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 109,
+      "competitor": "Texas State",
+      "inconsistency_score": 43,
+      "SOS": 0.046388016698747946,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "UTSA",
+          "magnitude": 34
+        },
+        {
+          "type": "loss",
+          "opponent": "Marshall",
+          "magnitude": 2
+        },
+        {
+          "type": "win",
+          "opponent": "Southern Miss",
+          "magnitude": 4
+        }
+      ]
+    },
+    {
+      "rank": 110,
+      "competitor": "Coastal Carolina",
+      "inconsistency_score": 0,
+      "SOS": 0.09516362955636702,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 111,
+      "competitor": "Marshall",
+      "inconsistency_score": 30,
+      "SOS": 0.014614236191685462,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Old Dominion",
+          "magnitude": 24
+        },
+        {
+          "type": "win",
+          "opponent": "Texas State",
+          "magnitude": 2
+        },
+        {
+          "type": "loss",
+          "opponent": "App State",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 112,
+      "competitor": "App State",
+      "inconsistency_score": 2,
+      "SOS": 0.04349844117850346,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Marshall",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 113,
+      "competitor": "South Alabama",
+      "inconsistency_score": 9,
+      "SOS": 0.022923879569532936,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Southern Miss",
+          "magnitude": 8
+        }
+      ]
+    },
+    {
+      "rank": 114,
+      "competitor": "UL Monroe",
+      "inconsistency_score": 8,
+      "SOS": 0.020942075418336075,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Arkansas State",
+          "magnitude": 7
+        }
+      ]
+    },
+    {
+      "rank": 115,
+      "competitor": "Liberty",
+      "inconsistency_score": 63,
+      "SOS": -0.010221414558948885,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Bowling Green",
+          "magnitude": 47
+        },
+        {
+          "type": "win",
+          "opponent": "Delaware",
+          "magnitude": 14
+        }
+      ]
+    },
+    {
+      "rank": 116,
+      "competitor": "Middle Tennessee",
+      "inconsistency_score": 38,
+      "SOS": 0.008857247535108817,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Austin Peay",
+          "magnitude": 16
+        },
+        {
+          "type": "win",
+          "opponent": "Nevada",
+          "magnitude": 20
+        }
+      ]
+    },
+    {
+      "rank": 117,
+      "competitor": "New Mexico State",
+      "inconsistency_score": 26,
+      "SOS": 0.04177895508462448,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Tulsa",
+          "magnitude": 25
+        }
+      ]
+    },
+    {
+      "rank": 118,
+      "competitor": "UTEP",
+      "inconsistency_score": 0,
+      "SOS": 0.02368422863937077,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 119,
+      "competitor": "Sam Houston",
+      "inconsistency_score": 19,
+      "SOS": 0.020231008195239677,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Delaware",
+          "magnitude": 18
+        }
+      ]
+    },
+    {
+      "rank": 120,
+      "competitor": "Oregon State",
+      "inconsistency_score": 33,
+      "SOS": 0.005257865967080937,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Washington State",
+          "magnitude": 32
+        }
+      ]
+    },
+    {
+      "rank": 121,
+      "competitor": "Charlotte",
+      "inconsistency_score": 0,
+      "SOS": 0.005739967419527865,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 122,
+      "competitor": "Western Michigan",
+      "inconsistency_score": 4,
+      "SOS": 0.01465958284854535,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Miami (OH)",
+          "magnitude": 3
+        }
+      ]
+    },
+    {
+      "rank": 123,
+      "competitor": "Ohio",
+      "inconsistency_score": 111,
+      "SOS": -0.0032699735304506303,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "West Virginia",
+          "magnitude": 103
+        },
+        {
+          "type": "loss",
+          "opponent": "Ball State",
+          "magnitude": 6
+        }
+      ]
+    },
+    {
+      "rank": 124,
+      "competitor": "Toledo",
+      "inconsistency_score": 64,
+      "SOS": 0.00046247458284786463,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Western Kentucky",
+          "magnitude": 54
+        },
+        {
+          "type": "loss",
+          "opponent": "Bowling Green",
+          "magnitude": 8
+        }
+      ]
+    },
+    {
+      "rank": 125,
+      "competitor": "Miami (OH)",
+      "inconsistency_score": 4,
+      "SOS": 0.04839961641822091,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Western Michigan",
+          "magnitude": 3
+        }
+      ]
+    },
+    {
+      "rank": 126,
+      "competitor": "Central Michigan",
+      "inconsistency_score": 67,
+      "SOS": -0.015228762090728432,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "San José State",
+          "magnitude": 61
+        },
+        {
+          "type": "loss",
+          "opponent": "Akron",
+          "magnitude": 4
+        }
+      ]
+    },
+    {
+      "rank": 127,
+      "competitor": "Buffalo",
+      "inconsistency_score": 4,
+      "SOS": -0.026366470964871564,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Akron",
+          "magnitude": 3
+        }
+      ]
+    },
+    {
+      "rank": 128,
+      "competitor": "Eastern Michigan",
+      "inconsistency_score": 104,
+      "SOS": -0.07791927311872021,
+      "inconsistent_games": [
+        {
+          "type": "loss",
+          "opponent": "Long Island University",
+          "magnitude": 52
+        },
+        {
+          "type": "win",
+          "opponent": "Louisiana",
+          "magnitude": 50
+        }
+      ]
+    },
+    {
+      "rank": 129,
+      "competitor": "Ball State",
+      "inconsistency_score": 12,
+      "SOS": -0.031940506119274514,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Ohio",
+          "magnitude": 6
+        },
+        {
+          "type": "loss",
+          "opponent": "Northern Illinois",
+          "magnitude": 4
+        }
+      ]
+    },
+    {
+      "rank": 130,
+      "competitor": "Akron",
+      "inconsistency_score": 11,
+      "SOS": -0.04368730495840139,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Central Michigan",
+          "magnitude": 4
+        },
+        {
+          "type": "win",
+          "opponent": "Buffalo",
+          "magnitude": 3
+        },
+        {
+          "type": "loss",
+          "opponent": "Kent State",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 131,
+      "competitor": "Kent State",
+      "inconsistency_score": 2,
+      "SOS": 0.018793383750136047,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Akron",
+          "magnitude": 1
+        }
+      ]
+    },
+    {
+      "rank": 132,
+      "competitor": "Bowling Green",
+      "inconsistency_score": 57,
+      "SOS": 0.0052650354762042596,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Liberty",
+          "magnitude": 47
+        },
+        {
+          "type": "win",
+          "opponent": "Toledo",
+          "magnitude": 8
+        }
+      ]
+    },
+    {
+      "rank": 133,
+      "competitor": "Northern Illinois",
+      "inconsistency_score": 5,
+      "SOS": 0.0041011453591601596,
+      "inconsistent_games": [
+        {
+          "type": "win",
+          "opponent": "Ball State",
+          "magnitude": 4
+        }
+      ]
+    },
+    {
+      "rank": 134,
+      "competitor": "Oklahoma State",
+      "inconsistency_score": 0,
+      "SOS": 0.003100156210107267,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 135,
+      "competitor": "Georgia State",
+      "inconsistency_score": 0,
+      "SOS": 0.0004709624060936491,
+      "inconsistent_games": []
+    },
+    {
+      "rank": 136,
+      "competitor": "Massachusetts",
+      "inconsistency_score": 0,
+      "SOS": 0.0,
+      "inconsistent_games": []
+    }
+  ]
 }
