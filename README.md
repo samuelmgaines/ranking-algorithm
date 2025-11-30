@@ -106,9 +106,9 @@ It is still possible for multiple rankings to have identical inconsistency score
 
 #### Computing SOS
 
-Critically, we evaluate strength of schedule only using **consistent games.** Inconsistent games already strongly affect the objective through inconsistency penalties. Additionally, we evaluate schedule using the **current best ranking**—SOS values are computed once and used for comparison, not recalculated for each candidate ranking. This prevents cascade effects from distorting tie-breaking decisions.
+Critically, **we evaluate strength of schedule _only_ using consistent games.** Inconsistent games already strongly affect the objective through inconsistency penalties.
 
-For competitor $c_i$ in the current ranking:
+For competitor $c_i$:
 
 -   $W_i$: multiset of opponents that $c_i$ defeated in **consistent** games.
 -   $L_i$: multiset of opponents that defeated $c_i$ in **consistent** games.
@@ -157,61 +157,60 @@ SOS behaves intuitively:
 -   Adding a consistent win always increases $\text{SOS}_i$.
 -   Adding a consistent loss always decreases $\text{SOS}_i$.
 
-#### Using SOS as a Tie-breaker
+#### Using SOS as a tie-breaker
 
-We employ a **lexicographic optimization** approach that preserves the primary objective's dominance:
-
-1. **First,** minimize the total inconsistency score:
+We incorporate strength of schedule adding the following term to the objective:
 
 $$
-L_1(r) = \sum_{(c_i, c_j) \in G} I(r_i, r_j, \alpha)
-\tag{4}
+\frac{2}{n(n+1)} \cdot \sum_{i=1}^n(\text{SOS}_i \cdot r_i).
 $$
 
-2. **Then,** among rankings with minimal $L_1$, maximize the SOS quality:
+Multiplying by $r_i$ ensures:
 
-$$
-L_2(r) = \sum_{i=1}^n \text{SOS}_i \cdot (n - r_i + 1)
-\tag{5}
-$$
+-   Because the objective is minimized, a higher SOS is preferred when paired with a smaller $r_i$ (a better rank).
+-   This aligns the minimization with the intuitive principle that stronger schedules should correspond to better ranks.
 
-The term $(n - r_i + 1)$ ensures that better ranks (smaller $r_i$) give higher weight to SOS values, and summing over all competitors provides a global measure of ranking quality.
+From equation $(3)$, each $\text{SOS}_i$ is bounded by $(\lambda - 1, \lambda)$. The extreme values of the sum $\sum_{i=1}^n(\text{SOS}_i \cdot r_i)$ occur when:
+
+-   All $\text{SOS}_i = \lambda$ and competitors are ordered optimally, giving $\lambda \cdot n(n+1)/2$
+
+-   All $\text{SOS}_i = \lambda - 1$ and competitors are ordered optimally, giving $(\lambda - 1) \cdot n(n+1)/2$
+
+The scaling factor $\frac{2}{n(n+1)}$ normalizes these extremes to ensure the range of the SOS term remains $(\lambda - 1, \lambda)$. This guarantees that inconsistency scores—which are integers due to integer $\alpha$—always dominate SOS effects.
+
+Thus, the system remains philosophically consistent: strength of schedule matters _only after_ consistency is maximized.
 
 ### Improved Mathematical Formulation
 
-The final formulation uses two-stage optimization:
-
-**Stage 1: Final all consistency-optimal rankings**
+Combining everything, the final optimization problem is:
 
 $$
-R^* = \{r \in P | L_1(r) = \min_{r'} L_1(r')\}
-\tag{6}
-$$
-
-**Stage 2: Select the best SOS ranking**
-
-$$
-r^* = \argmax_{r \in R^*} L_2(r)
-\tag{7}
+\min \sum_{(c_i, c_j) \in G} I(r_i, r_j, \alpha) + \frac{2}{n(n+1)} \cdot \sum_{i=1}^n(\text{SOS}_i \cdot r_i)\\
+\text{s.t. } r_i \neq r_j \text{ } \forall \text{ } i \neq j, \\
+r_i \in {1, ..., n} \text{ } \forall \text{ } i.
+\tag{4}
 $$
 
 Where:
 
--   $P$ is the set of all permulations of $\{1, ..., n\}$
--   $L_1(r)$ is defined in $(4)$ and uses $I(r_i, r_j, \alpha)$, defined in $(2)$
--   $L_2(r)$ is defined in $(5)$ and uses $\text{SOS}_i$, defined in $(3)$, computed from a reference ranking
+-   $I$ is defined in $(2)$
+-   $\text{SOS}_i$ is defined in $(3)$
+-   $W_i = \{c_j : (c_i, c_j) \in G \text{ and } r_i < r_j\}$
+-   $L_i = \{c_j : (c_j, c_i) \in G \text{ and } r_i > r_j\}$
+-   $\alpha \geq 0$ is an integer
+-   $\epsilon > 0, k \geq 0, \lambda \in [0, 1]$
 
 This formulation:
 
 -   **Minimizes inconsistency magnitude**
 -   **Minimizes number of inconsistencies** (via $\alpha$)
--   **Breaks remaining ties using strength of schedule**
+-   **Breaks remaining ties using strength of schedule**, scaled so that consistency always dominates
 
 Together, these components produce rankings that are consistent, interpretable, and tunably sensitive to quality of competition.
 
 ## The Computation
 
-The optimization problem in $(6)$ and $(7)$ is combinatorial: the feasible set consists of all permutations of ${1, ..., n}$, and even for moderate $n$, the search space $n!$ is far too large for exhaustive search.
+The optimization problem in $(4)$ is combinatorial: the feasible set consists of all permutations of ${1, ..., n}$, and even for moderate $n$, the search space $n!$ is far too large for exhaustive search.
 
 Accordingly, the solver employs **stochastic discrete optimization** consisting of two complementary procedures:
 
@@ -220,26 +219,25 @@ Accordingly, the solver employs **stochastic discrete optimization** consisting 
 
 The annealing stage explores the permutation space broadly and identifies a near-optimal basin, while the sliding stage performs a fine-grained local search to converge to a stable minimum of the objective.
 
-Both methods evaluate candidate rankings using the objective functions in $(6)$ and $(7)$, with the inconsistency penalties and the SOS tie-breaker. All computations treat the rank vector as an ordered list (a permutation of competitors), with index position $i$ corresponding to rank $i+1$.
+Both methods evaluate candidate rankings using the complete objective function in $(4)$, including inconsistency penalties and the normalized SOS tie-breaker. All computations treat the rank vector as an ordered list (a permutation of competitors), with index position $i$ corresponding to rank $i+1$.
 
 ### Simulated Annealing
 
 Simulated annealing provides a probabilistic framework for minimizing a discrete objective function that may contain many local minima.
 
-Let $r$ denote the current permutation.
+Let $r$ denote the current permutation and $L(r)$ the current **loss**, which we define as the value of the objective function in $(4)$.
 
 At each iteration:
 
 1. Two competitors are selected uniformly at random.
 2. Their positions in the ordering are swapped, producing a new permutation $r'$.
-3. The loss differences $\Delta_1=L_1(r')-L_1(r)$ and $\Delta_2=L_2(r')-L_2(r)$ are computed.
+3. The loss difference $\Delta=L(r')-L(r)$ is computed.
 4. The new state is accepted according to the Metropolis criterion:
 
     $$
     r \leftarrow \begin{cases}
-        r' & \text{if } \Delta_1 < 0,\\
-        r' & \text{if } \Delta_1 = 0 \text{ and } \Delta_2 > 0,\\
-        r' & \text{with probability } \exp(-\Delta_1 / T) \text{ if } \Delta_1 > 0,\\
+        r' & \text{if } \Delta < 0,\\
+        r' & \text{with probability } \exp(-\Delta / T),\\
         r & \text{otherwise},
     \end{cases}
     $$
@@ -284,8 +282,8 @@ For each feasible shift, a new permutation is formed by removing the competitor 
 For each competitor:
 
 1. All upward and downward slides within the window are evaluated.
-2. The slide yielding the best overall ranking is identified.
-3. If that slide improves the ranking, it is applied immediately.
+2. The slide yielding the smallest loss is identified.
+3. If that slide improves the global objective, it is applied immediately.
 4. The process restarts from the top of the ranking after every successful improvement.
 
 This “first-improvement restart” strategy ensures that local dependencies are respected: repositioning a single competitor often alters the optimal moves for those around it, so restarting prevents stale assumptions about local structure.
@@ -296,7 +294,7 @@ The sliding stage repeats until either:
 
 -   the predetermined maximum number of passes is reached.
 
-Because slides strictly improve the ranking, this stage converges to a **local optimum within the neighborhood of contiguous moves up to size $W$.**
+Because slides are strictly loss-decreasing, this stage converges to a **local minimum within the neighborhood of contiguous moves up to size $W$.**
 
 Empirically, annealing identifies a strong basin, and sliding then resolves fine-grained rank ordering that transposition dynamics alone are unlikely to discover.
 
